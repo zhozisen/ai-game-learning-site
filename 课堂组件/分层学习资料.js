@@ -1,9 +1,9 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else{root.CourseResources=api;api.mountFixed();root.document.addEventListener('course:change',api.mountFixed);}})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
 const external={
-git:{title:'Git Windows 下载',url:'https://git-scm.com/download/win',type:'操作入口',requirement:'装备准备',purpose:'安装器未装好Git时，使用官方安装入口补装。',range:'只需安装并检查能否运行Git；已装好可跳过。',source:'03_装备清单.md',action:'打开官方下载 ↗'},
-signup:{title:'注册 GitHub 账号',url:'https://github.com/signup?source=login',type:'操作入口',requirement:'装备准备',purpose:'准备自己的远程仓库账号，后续用于备份和作品协作。',range:'完成注册并确认可以登录；已有账号无需重复注册。',source:'07_总路线打卡清单.md',action:'前往 GitHub 注册 ↗'},
-gitArticle:{title:'Git 与 GitHub 入门图文',url:'https://mp.weixin.qq.com/s/_HeNehfiC4GsOwjSKHTsyw',type:'图文教程',requirement:'按需查阅',purpose:'注册或区分Git与GitHub时，需要图文说明可以查阅。',range:'看与你当前操作有关的部分，完成账号准备后回到任务。',source:'01_Git入门_给代码装一台时光机.md',action:'阅读图文教程 ↗'},
+git:{title:'Git Windows 下载',url:'https://git-scm.com/install/windows',type:'操作入口',requirement:'装备准备',purpose:'安装器未装好Git时，使用官方安装入口补装。',range:'只需安装并检查能否运行Git；已装好可跳过。',source:'03_装备清单.md',action:'打开官方下载 ↗'},
+signup:{title:'注册 GitHub 账号',url:'https://docs.github.com/zh/account-and-profile/how-tos/account-management/creating-an-account-on-github',type:'操作入口',requirement:'装备准备',purpose:'准备自己的远程仓库账号，后续用于备份和作品协作。',range:'完成注册并确认可以登录；已有账号无需重复注册。',source:'07_总路线打卡清单.md',action:'前往 GitHub 注册 ↗'},
+gitArticle:{title:'Git 与 GitHub 入门图文',url:'https://docs.github.com/zh/account-and-profile/how-tos/account-management/creating-an-account-on-github',type:'图文教程',requirement:'按需查阅',purpose:'注册或区分Git与GitHub时，需要图文说明可以查阅。',range:'看与你当前操作有关的部分，完成账号准备后回到任务。',source:'01_Git入门_给代码装一台时光机.md',action:'阅读图文教程 ↗'},
 gitVideo:{title:'Git+Github核心概念大串讲，从零到一全攻略，详细实战教程',url:'https://www.bilibili.com/video/BV1ySLc6QEcB/',type:'B站视频 · 技术爬爬虾',requirement:'配套选学',purpose:'用动画讲解与实战演示，辅助理解Git与GitHub的核心概念。',range:'优先围绕本地仓库、提交、分区和远程仓库观看；分支与协作按需深入，看完回到本站完成实际操作。',source:'00_先读我.md',action:'前往哔哩哔哩观看 ↗'},
 gitBook:{title:'廖雪峰 Git 教程',url:'https://liaoxuefeng.com/books/git/introduction/index.html',type:'系统教程',requirement:'进阶选学',purpose:'本站主线完成后，继续系统学习版本管理。',range:'通关后按需深入；不要求读完整本才能进入下一站。',source:'00_先读我.md',action:'打开进阶教程 ↗'},
 godotVideo:{title:'用 Godot 做出你的第一个 2D 游戏',url:'https://www.bilibili.com/video/BV1JuCrYcEvJ/',type:'B站视频',requirement:'跟练选学',purpose:'用直观演示帮助理解场景搭建和游戏制作过程。',range:'按原资料建议，读完概念卡、看过AI演示后选择跟练。',source:'00_先读我.md',action:'前往哔哩哔哩观看 ↗'},
@@ -11,7 +11,7 @@ godotDocs:{title:'Godot 官方中文文档',url:'https://docs.godotengine.org/zh
 aiVideo:{title:'10 分钟学会 24 个 ClaudeCode 使用技巧',url:'https://www.bilibili.com/video/BV1SddcBFESs/',type:'B站视频',requirement:'配套选学',purpose:'通过演示了解AI工具的使用方法，再回到自己的任务尝试。',range:'按原资料挑选适用技巧，不把看完视频当作能力验收。',source:'00_先读我.md',action:'前往哔哩哔哩观看 ↗'},
 aiLong:{title:'Claude Code 从 0 到 1 全攻略',url:'https://www.bilibili.com/video/BV14rzQB9EJj/',type:'B站视频',requirement:'进阶选学',purpose:'需要进一步了解MCP、Agent Skill等概念时观看。',range:'按原讲义的章节提示选择相关片段，无需从头全部看完。',source:'02_从LLM到Agent_指挥AI的八级台阶.md',action:'打开配套长视频 ↗'},
 tutor:{title:'DeepTutor 开源项目',url:'https://github.com/HKUDS/DeepTutor',type:'进阶工具',requirement:'进阶选学',purpose:'主线熟悉后，探索把文档变成互动学习材料的方法。',range:'原资料第8级的拓展方向；不要求安装或部署后才能过站。',source:'02_从LLM到Agent_指挥AI的八级台阶.md',action:'查看开源项目 ↗'},
-itch:{title:'itch.io 游戏发布平台',url:'https://itch.io',type:'操作入口',requirement:'发布实践',purpose:'按本站发布讲义上传和展示自己的游戏。',range:'先阅读发布步骤，再到平台实际操作，回站记录运行与试玩结果。',source:'01_发布你的游戏.md',action:'前往发布平台 ↗'}
+itch:{title:'itch.io 游戏发布平台',url:'https://github.com/itchio/itch.io',type:'操作入口',requirement:'发布实践',purpose:'按本站发布讲义上传和展示自己的游戏。',range:'先阅读发布步骤，再到平台实际操作，回站记录运行与试玩结果。',source:'01_发布你的游戏.md',action:'前往发布平台 ↗'}
 };
 const mapping={0:['git','signup','aiVideo','aiLong','tutor'],1:['gitVideo','signup','gitArticle','gitBook'],2:['godotVideo','godotDocs'],3:['aiVideo','aiLong','tutor'],4:[],5:[],6:[],7:['itch']};
 const mainHelp={0:['先看零基础总路线，知道每站做什么、交什么、卡住回哪里。','按总表从当前站开始；装备只核对当前需要项，网页积分与工程验收分开。'],1:['给自己的工程建立可恢复的版本记录。','阅读入门讲义，完成末尾三件小事。'],2:['从编辑器、场景实例到脚本阅读、输入信号、调试与完整小项目。','先看概念速览，再按六步各做一次最小练习；工程成果需教师核对。'],3:['把目标、约束、上下文和验收说清楚。','先读本站主讲义，配合其他资料完成一次小任务。'],4:['从真实游玩证据拆解游戏。','按本站方法记录玩家动作、目标、反馈与循环。'],5:['把想法写成有边界、能验证的设计。','先读主讲义，再按配套模板完成自己的一页设计。'],6:['把设计中的最小核心循环做成可运行原型。','围绕本站实战任务阅读，先定义验收再动手。'],7:['把可玩的作品交到真实玩家手中。','阅读发布步骤，再进行导出、发布与试玩回顾。']};
