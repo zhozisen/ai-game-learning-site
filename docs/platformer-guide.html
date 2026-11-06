@@ -1,0 +1,26 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>固定拆解路径与边界</title><style>body{max-width:850px;margin:25px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><pre># 固定拆解工程与教学边界
+
+主例为Godot官方Platformer，固定提交`b761b4cd5718a7118f2c95eb55f181d0a5f004f1`。37号清单记录逐文件来源与SHA256；38号记录导入、无界面运行和Web导出；42号记录实际浏览器输入、暂停与恢复。4.7.2、Compatibility验证通过。
+
+按任务追一条链，不通读所有文件：
+
+|知识关系|实际入口与追踪位置|核对动作|
+|---|---|---|
+|工程入口|project.godot → game_singleplayer.tscn → Level/Player|从主场景打开，区别运行项目与当前场景|
+|运动、跳跃与碰撞|player/player.gd、player/player.tscn、地形|预测持续输入、单次跳跃与松开后的差异|
+|可复用场景|level/level.tscn、enemy/enemy.tscn、player/gun.tscn|同场景多个实例如何覆盖属性|
+|信号、数据与UI|level/coin.gd、Player.coin_collected与界面连接|从碰撞追踪到计数，不只看标签|
+|生成与销毁|player/gun.gd、player/bullet.gd、enemy/enemy.gd|计时、发射、碰撞、释放及引用有效性|
+|反馈与资源|AnimationPlayer、音频节点、贴图和.tres|说明某种可见反馈的触发者与配置|
+|暂停|game.gd、gui/pause_menu.gd|谁继续响应、谁被暂停，再恢复|
+
+官方README明确：玩家无敌、只有封闭关卡。不能把“敌人受伤”说成“玩家生命系统已完成”，也不能假设已有存档、完整胜负与重开。课程里把这些作为补缺与迁移任务：先查实际缺口，再参考官方保存读取文档、GDQuest伤害与结束链或学生自己的原型，做一个有边界的改动。不要求把所有补充工程从头拆完。
+
+代码许可查看仓库固定提交的LICENSE.md（MIT）；音乐单独记录README中Pompy及Hubert Lamontagne署名，不把代码许可自动推断为每个音频的独立授权。此轮只把官方工程下载到本地验证缓存，并提供来源链接，没有把官方工程及音乐再次分发到网站。学生发布自己的游戏前须逐素材核对授权或替换为可明确授权素材。
+
+本地兼容改动：添加Web导出预设；浏览器测试导出时临时给game.gd增加只读位置/暂停观测，完成后源码恢复。没有改变原玩法，也没有把带观测的官方导出作为学生作品展示。原始摘要与本地适配日志分别保留。
+
+起步不足时可参考Brackeys的first-game-in-godot项目；它是备选起步，不替换主例的系统追踪任务。课程的主路线不要求额外完整制作一个相同游戏。
+
+来源：[固定Platformer](https://github.com/godotengine/godot-demo-projects/tree/b761b4cd5718a7118f2c95eb55f181d0a5f004f1/2d/platformer)、[代码许可](https://github.com/godotengine/godot-demo-projects/blob/b761b4cd5718a7118f2c95eb55f181d0a5f004f1/LICENSE.md)、[官方Web导出](https://docs.godotengine.org/zh-cn/stable/tutorials/export/exporting_for_web.html)、[Brackeys备选起步](https://github.com/Brackeys/first-game-in-godot)。
+</pre></html>

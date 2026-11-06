@@ -1,0 +1,223 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>04_进阶_游戏上国内三平台</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}</style><h1>04_进阶_游戏上国内三平台</h1><p>这是补充原稿，旧站号可能与新版不同。学习顺序、教学基线和验收以当前课堂为准。</p><pre># 进阶:HTML 游戏上国内三平台 —— 微信小游戏 / 抖音小游戏 / TapTap
+
+| 为什么有这份文档 | `01_发布你的游戏.md` 结尾说过&quot;第二个游戏再挑战微信&quot;——这份就是那条路的完整展开:三家平台各收什么、要什么资质、怎么把游戏改造进去,附两份直接复制给 AI 的提示词 |
+|---|---|
+| **是什么** | 三平台路线图 + 六条适配路径 + 上架门槛清单 + 两份 AI 提示词 + Three.js 3D 进阶 |
+| **怎么用** | 通读一遍建立认知(20 分钟)→ 真要做时按第六节动作序列走,提示词直接复制给 AI |
+| **什么时候用** | 第 7 站主线(itch.io)通关后,想让游戏出现在微信、抖音、TapTap 上的进阶挑战 |
+
+&gt; 先对齐一件事:这份攻略说的是**用网页技术(JS)直接写的游戏**。你在 Godot 里做的游戏导出的&quot;网页版&quot;虽然也是 HTML,但**进不了微信/抖音小游戏**(第四节解释为什么)——想上国内小游戏平台,得用 JS 直接写游戏,或让 AI 帮你重做。
+
+## 第一节:三个平台,三种门
+
+| 平台 | 它收什么 | 标准 HTML 直接发? | 资质门槛 | 变现方式 |
+|---|---|---|---|---|
+| **微信小游戏** | 小游戏专用包(封闭 JS 运行时,**无 DOM**) | ❌ 需适配 | 个人可发,要**软著** | 广告;内购需版号(个人拿不到) |
+| **抖音小游戏** | 同微信,自家封闭运行时 | ❌ 需适配 | 个人可发,要软著 | 广告(穿山甲) |
+| **TapTap** | **安卓 APK**(游戏商店) | ❌ 需打包成 APK | 个人友好,无硬性软著 | 免费+内购,无强制分成 |
+
+## 第二节:最重要的一个认知——微信/抖音小游戏不是浏览器
+
+小游戏运行时**没有 DOM、没有 CSS**——就是没有&quot;网页标签&quot;那一套,只有一块画布(canvas)和平台自己的 JS API。
+
+这带来一条分水岭:
+
+- 你的 HTML 游戏 UI 是**用网页标签+样式写的** → 进不了微信/抖音,两个都不行;
+- 你的游戏是**纯 canvas 绘制**(画面全靠自己画)+ 纯 JS 逻辑 → 距离小游戏包只剩&quot;套平台 SDK&quot;一步。
+
+**TapTap 是另一边**:它走 WebView(内嵌浏览器),里面是完整浏览器,DOM/CSS 原样能跑——但你要交的是 APK 安装包。
+
+&gt; **Godot 玩家特别注意**:Godot 官方**不支持**导出微信/抖音小游戏(它的网页导出依赖的技术在小游戏环境跑不了)。Godot → 直接导 APK 上 TapTap ✅;Godot → 微信小游戏 ❌。想上国内小游戏平台,换 JS 技术栈。
+
+## 第三节:适配路径总表(按代价从低到高)
+
+| 平台 | 路径 | 做法 | 代码保留 | AI 全自动 |
+|---|---|---|---|---|
+| 微信/抖音小游戏 | ① 手写 adapter | 纯 canvas + `game.js` 入口 + 平台 API 映射层(wx. / tt. 一层抹平) | ~95% | ✅ |
+| | ② PixiJS | 渲染层换 Pixi 渲染库,配社区小游戏适配 | 逻辑 100%,渲染层重写 | ✅ |
+| | ③ LayaAir | 按 Laya 工程组织,IDE 一键导出双平台 | 大半 | ✅ 可纯代码 |
+| | ④ Cocos Creator | 重建为 Cocos 工程,编辑器搭场景 | 逻辑重写 TS | ⚠️ 编辑器半手动 |
+| TapTap | ⑤ Capacitor 套壳 | 原 HTML(**带 DOM 也行**)塞进 WebView 打 APK | 100% | ✅ |
+| | ⑥ TWA/PWA | 游戏挂 https 域名 + PWA 清单,TWA 打包 APK | 100% | ✅ |
+
+**推荐:路径①为主**(全程纯代码、零编辑器、AI 从写到出包一条龙),⑤做顺手加菜(代码不动多一个渠道)。
+
+## 第四节:路径①详解——什么是&quot;手写 adapter&quot;
+
+adapter = 你(让 AI)写的一小层**转接头**代码,夹在游戏主体和平台之间。游戏永远只认统一接口,adapter 负责翻译成当前平台的真实 API:
+
+| 游戏里想做的事 | 浏览器里的写法 | 你定义的统一接口 | adapter 在微信/抖音底下翻译成 |
+|---|---|---|---|
+| 拿画布 | `document.createElement(&#x27;canvas&#x27;)` | `getCanvas()` | `wx.createCanvas()` |
+| 存档 | `localStorage.setItem` | `save(k,v)` | `wx./tt.setStorageSync` |
+| 点击/触摸 | `addEventListener(&#x27;touchstart&#x27;)` | `onTap(fn)` | `wx.onTouchStart` |
+| 播声音 | `new Audio()` | `playSound(src)` | `createInnerAudioContext` |
+| 切后台暂停 | (浏览器没这事) | `onPause(fn)` | `onHide`/`onShow` |
+
+```js
+// adapter.js 缩微版 —— 全部平台差异都在这一个文件
+const api = window.wx ? wx : (window.tt ? tt : null); // 探测现在跑在哪家
+
+export const save = (k, v) =&gt;
+  api ? api.setStorageSync(k, v) : localStorage.setItem(k, v); // 没平台=浏览器,原样跑
+```
+
+三个关键点:
+
+1. 总量通常只有 200~500 行,因为要翻译的就这几样:画布、存储、触摸、音频、生命周期;
+2. 微信 `wx.` 和抖音 `tt.` 的 API 长得几乎一样只是名字不同——**一份代码出两个包**;
+3. 在浏览器里跑(探测不到平台)自动退回原始写法——**浏览器调试、微信出包、抖音出包,三个环境共用全部代码**。
+
+## 第五节:上架三道门(能出包 ≠ 能上架)
+
+| 门槛 | 微信小游戏 | 抖音小游戏 | TapTap |
+|---|---|---|---|
+| 开发者账号 | 公众平台注册(个人可) | 抖音开发者平台(个人可) | TapTap 开发者中心(个人可) |
+| **软著** | **要**(游戏类目硬要求) | **要** | 不硬性要求 |
+| 版号 | 仅内购需要 → 个人拿不到,**变现锁定广告** | 同左 | 不需要 |
+| 内容审核 | 游戏本身过审 | 同左 | 纯 WebView 壳有被拒风险 |
+
+&gt; **学生注意**:注册账号、申请软著都需要真实身份证,未成年人身份可能受限——**拉上老师或家长协助**。个人申请软著官方通道免费但排队要一两个月,代理几百块可加快;这是整个流程里等待最久的一环,想做就尽早启动。(细则以三平台当日文档为准。)
+
+## 第六节:动作序列
+
+1. **今天就启动**(和做游戏并行):注册三平台开发者账号(免费)+ 启动软著申请——别等游戏做完才想起它;
+2. **开发期纪律**(想让将来适配便宜,写代码时守四条):逻辑与渲染分离 / 数值配置全 JSON 不硬编码 / UI 从简 / 纯 canvas 渲染;
+3. **发布期**:微信出包提审 → 抖音出包提审(边际成本极低)→ (可选)Capacitor 打 APK 上 TapTap;
+4. **变现设计**:个人主体 = 广告变现,设计玩法时就把广告位(看视频复活、过关插屏)当作系统一部分。
+
+## 第七节:两份 AI 提示词(直接复制,`&lt;&gt;` 处替换)
+
+### 提示词一:HTML → 微信小游戏 + 抖音小游戏(路径①)
+
+````markdown
+# 任务:把 HTML 游戏适配为微信小游戏 + 抖音小游戏双端工程
+
+## 输入
+- 源游戏:&lt;游戏目录,含 index.html 与全部资源&gt;
+- 铁律:不修改玩法逻辑,本次只做&quot;运行时适配&quot;
+
+## 背景约束(必须遵守)
+1. 微信/抖音小游戏是无 DOM 运行时:没有 document、没有 CSS、
+   window 大部分 API 不存在。所有与浏览器接触的代码必须收口进适配层。
+2. 平台 API 前缀:微信=wx.,抖音=tt.,两家同类不同名;浏览器环境两者皆无。
+3. 包体限制:主包约 4MB,超限资源必须外移为远程加载。
+
+## 执行步骤
+
+### 第一步:体检报告(先只输出报告,停下等我确认,不要动手)
+扫描源码,报告:
+- DOM/CSS 依赖清单(每一处 document.createElement / style 操作)
+- 用到的:localStorage、addEventListener、new Audio、rAF、定时器
+- 资源总体积,哪些文件超限需外移
+- 结论:「可直接适配」或「UI 需先 canvas 化」——若重度 DOM,列出改造范围与工作量,等我决策
+
+### 第二步:建 adapter.js 统一适配层
+- 平台探测:const api = window.wx ? wx : (window.tt ? tt : null)
+- 统一接口至少覆盖:
+  getCanvas()            → wx.createCanvas()/浏览器建 canvas
+  save(k,v) / load(k)    → setStorageSync / localStorage
+  onTap(cb) 等触摸事件    → wx.onTouchStart… / addEventListener
+  playSound(src)         → createInnerAudioContext / new Audio()
+  onPlatformPause/Resume → onHide/onShow / 浏览器空实现
+- 此后游戏主体只 import 统一接口,禁止直接出现 wx. / tt. / document.
+
+### 第三步:双平台入口与配置
+- platforms/weixin/:game.js(引 adapter 与游戏主入口)、game.json、project.config.json(appid 留占位)
+- platforms/douyin/:同一份 game.js,配抖音侧 game.json 与 project.config.json
+- 公共游戏代码留在根目录,双端共享
+
+### 第四步:包体处理
+- 压缩/合图;仍超 4MB 的资源改为远程 URL 加载(地址做成配置项)
+
+### 第五步:自检(输出结果)
+- 全局搜索 document. / window. / localStorage. / new Audio / navigator.,
+  除 adapter.js 外必须零命中
+- 两份 game.json 齐全,入口链路 game.js → adapter → 主函数 可追踪
+
+## 验收标准
+1. 工程能分别导入微信开发者工具与抖音开发者工具,模拟器可玩
+2. 同一份游戏代码三处行为一致:浏览器 / 微信 / 抖音
+3. 玩法与源游戏完全一致,未砍功能
+
+## 交付物
+- 完整双端工程目录树
+- 《适配报告.md》:体检结果、API 映射表、包体处理、遗留风险、
+  两个开发者工具的导入运行步骤
+````
+
+### 提示词二:HTML → TapTap(Capacitor 打 APK,路径⑤)
+
+````markdown
+# 任务:把 HTML 游戏打包为安卓 APK,用于上架 TapTap
+
+## 输入
+- 源游戏:&lt;游戏目录&gt;(TapTap 走 WebView 完整浏览器,DOM/CSS 原样保留)
+- 应用名 / 包名 / 版本:&lt;如 我的游戏 / com.xxx.game / 1.0.0&gt;
+- 图标与启动图:&lt;路径,或先用占位图&gt;
+
+## 执行步骤
+1. 初始化 Capacitor 工程,游戏全部文件放入 www/
+2. 配置 capacitor.config.json:appId、appName、webDir=www、
+   全屏、锁定横/竖屏(按游戏实际方向)、backgroundColor 与启动屏同色
+3. 移动端体验整改(WebView 里能跑 ≠ 手机上好玩):
+   - viewport 正确、禁双击缩放;可点目标 ≥ 44px
+   - 所有 hover 交互改 touch;适配刘海屏安全区
+4. npx cap add android;放置各分辨率图标与启动图(缺了会构建失败)
+5. 构建:先 assembleDebug 验证,再 assembleRelease 出正式 APK
+6. 真机/模拟器自检:启动 → 进游戏 → 完整玩一局 → 切后台再回来不异常
+
+## 上架配套(一并产出)
+- TapTap 材料清单:应用名、简介、1080p 游戏内截图 3-5 张、
+  512 图标、隐私政策 URL
+- 说明:纯 WebView 壳有被拒风险,已做全屏+启动屏+锁方向等&quot;原生感&quot;
+  处理;若被拒,准备一封说明信作为兜底
+
+## 验收标准
+1. 产出可安装的 release APK,真机可玩,体验与浏览器一致
+2. 交付物:APK 路径、《打包说明.md》(如何重新构建/换图标/改版本)、
+   上架材料清单
+````
+
+## 第八节:3D 进阶——Three.js 也能走这条路(选读)
+
+想做 3D 游戏?Three.js(浏览器最流行的 3D 库)三端都能上,而且处境比普通 HTML 游戏还好:它的画面全画在 WebGL 画布上、根本不碰 DOM——恰好就是小游戏要求的形态。第三节路径①照用,adapter 里多翻译几样 3D 特有的东西:
+
+| 平台 | Three.js 怎么上 |
+|---|---|
+| 微信小游戏 | Three.js + adapter 出包,成熟组合(官方出过适配版但基于老版 three,通行做法是新版 three + 手写 adapter) |
+| 抖音小游戏 | 同一份代码,adapter 换成 tt. 前缀 |
+| TapTap | WebView 支持 WebGL,原样跑 + Capacitor 打包,零改动 |
+
+**多出来的适配点**(在第四节 adapter 清单之上):
+
+| # | 点 | 怎么处理 |
+|---|---|---|
+| 1 | 画布接入 | `wx.createCanvas()` 拿到的画布直接传给 `new THREE.WebGLRenderer({ canvas })` |
+| 2 | 贴图加载(最常见的坑) | TextureLoader 内部用的 `new Image()` 在小游戏里不存在 → patch 成 `wx.createImage()` |
+| 3 | 窗口信息 | `innerWidth`/`devicePixelRatio` → `getSystemInfoSync()` 取 |
+| 4 | ⚠️ three 版本 | 新版(r163 起)只支持 WebGL2,小游戏环境未必有 → 选版本前先在开发者工具里验证,拿不准用 r15x 系 |
+| 5 | 3D 资源必超包体 | 模型+贴图动辄几十 MB → .glb/贴图全部远程 CDN 加载,下载域名要在平台后台配置为合法域名(https) |
+| 6 | 压缩模型解码器 | Draco/meshopt 的 wasm 路径也要按小游戏环境适配 |
+| 7 | 性能 | 小游戏玩家多在中低端安卓机,面数和 drawcall 克制,真机测试不可省 |
+
+用提示词一做 Three.js 项目时,把下面这段追加发给 AI(接在它的&quot;背景约束&quot;后面):
+
+````
+## Three.js 专项要求
+1. 本项目基于 three.js(r___ 版),渲染走 WebGL,不涉及 DOM——UI 亦不得用 DOM 实现
+2. adapter 需额外翻译:
+   - 画布:wx.createCanvas() 传入 THREE.WebGLRenderer({ canvas })
+   - 贴图:TextureLoader 的 Image 依赖 patch 为 wx.createImage()/tt.createImage()
+   - 窗口:innerWidth/innerHeight/devicePixelRatio → getSystemInfoSync()
+3. 体检阶段额外报告:three 版本号(核对 WebGL2 依赖)、是否用了 Draco/meshopt、
+   模型与贴图总体积
+4. 资源方案:.glb/贴图全部远程加载,域名留配置项,加载失败要有重试与降级提示
+````
+
+## 用法要点
+
+1. **顺序**:先跑提示词一的第一步(体检报告)——它是决策关卡,重度 DOM 的游戏在那里就会被拦下,避免白干;
+2. **提示词二最后跑**:提示词一产出的代码在浏览器模式照样能跑,直接拿去打包 TapTap,一份代码三端收口;
+3. 卡住了就把报错原样发给 AI,加上一句&quot;我在做微信小游戏 adapter 适配,卡在第 X 步&quot;。
+</pre></html>

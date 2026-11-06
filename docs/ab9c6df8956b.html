@@ -1,0 +1,78 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>03_用好AI_官方资料学习路线</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}</style><h1>03_用好AI_官方资料学习路线</h1><p>这是补充原稿，旧站号可能与新版不同。学习顺序、教学基线和验收以当前课堂为准。</p><pre># 用好 AI：从说清任务到验证结果
+
+适合：零基础、刚开始借助AI做游戏的同学。目标：独立完成一次“小任务→检查→修改→保存”的协作，而不只是得到一段回答。
+
+这是本站学习导航和练习单，讲解以链接中的官方原文为依据；下面的游戏案例是本站设计的练习，不是原教程内容。建议分两次学习，时间由自己的练习速度决定。无需购买新工具、调用API或安装插件。
+
+## 少量必学：只读一篇短文，完成一个小任务
+
+必学阅读只有下面这篇提示入门短文；完成任务卡、三条验收标准和一次检查即可。后文的两份技术手册按遇到的问题选读，不要求依次通读。尚无工程时可用“生成任务卡文件并检查字段”的练习；已有Godot工程时沿用同一个开始按钮任务，不同时做多个项目。
+
+## 第一步：把需求说清楚
+
+阅读：[OpenAI：ChatGPT 提示工程最佳实践（中文）](<a href="https://help.openai.com/zh-hans-cn/articles/10032626-prompt-engineering-best-practices-for-chatgpt" target="_blank" rel="noopener">https://help.openai.com/zh-hans-cn/articles/10032626-prompt-engineering-best-practices-for-chatgpt</a>)
+
+学习范围：先读“清晰且具体”“迭代优化”。这是一份短篇入门说明，不是完整开发课程；中文页面标注为机器翻译。使用其他AI工具也可练习，具体操作以各工具为准。
+
+练习：把“帮我做个游戏”改写成一张任务卡：玩家做什么、这次只实现什么、已有环境是什么、怎样算成功。先请AI指出缺少的信息，不急着生成整个工程。
+
+交付：一张目标、上下文、范围、验收齐全的任务卡。
+
+## 按需参考：先想好怎么检查
+
+阅读：[Anthropic：提示工程概述（中文）](<a href="https://platform.claude.com/docs/zh-CN/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener">https://platform.claude.com/docs/zh-CN/build-with-claude/prompt-engineering/overview</a>)
+
+学习范围：阅读“提示工程之前”，理解成功标准、测试方式、提示初稿之间的关系。页面后面的API、Notebook及模型专项内容本次不用学。
+
+练习：为“按下开始按钮进入游戏”写三条观察标准：点击前显示什么、点击后出现什么、重新启动后是否仍正常。请AI检查标准是否可观察，再由自己运行验证。
+
+交付：三条可以实际操作检查的标准。AI说“已完成”不能代替运行结果。
+
+## 按需参考：给AI必要的项目背景
+
+阅读：[Claude Code 最佳实践（中文）](<a href="https://code.claude.com/docs/zh-CN/best-practices" target="_blank" rel="noopener">https://code.claude.com/docs/zh-CN/best-practices</a>)
+
+学习范围：优先找“告诉 Claude 它看不到的信息”以及“给 Claude 一个可以运行的检查”相关部分。第一次阅读可跳过无人值守、组织管理、Hook和高级权限配置。文档会更新，按主题查找，不必死记章节编号。
+
+练习：整理Godot版本、相关场景/脚本、实际现象和预期行为。使用工具提供的正常文件读取入口，让AI先说明它理解的现状；不要上传密码、API Key或同学资料。项目尚未建好时，先用任务卡练习，不要求提前完成第6站。
+
+交付：一份最小项目背景说明。上下文要与任务有关，不必把全部聊天和整个资料库都塞进去。
+
+## 实践：一次完成一个可检查的变化
+
+继续使用上一步的官方最佳实践作为参考。下面的操作顺序是本站建议，不是官方要求逐字照做的流程。
+
+练习任务：“给现有练习场景增加一个开始按钮。”先让AI检查文件并提出小计划；确认修改范围；保存一个可恢复版本；再实施一个变化。运行检查通过后再提交。尚未安装Godot的同学，先做“生成一份任务卡文件并检查字段是否齐全”的低门槛练习。
+
+交付：修改前后的记录、检查结果和一次Git提交；失败时保留错误，不重复堆叠新功能。
+
+## 遇到报错再查：提供证据，修复后再次验证
+
+回看官方最佳实践中的检查与验证部分，结合本站Git站的恢复方法实践。
+
+练习：提供完整报错文本、复现步骤、预期与实际结果、相关文件及最近一次修改。让AI先说明排查依据，再做最小修复。无法确认时，请它说明不确定处，并查询对应版本的Godot官方文档。
+
+交付：一张“现象→依据→修改→复验结果”记录。只写“AI已经修好了”不算证据；不理解的改动先让AI解释，再运行确认。
+
+## 通关：把五步连起来
+
+沿用上面的同一个小任务，交出任务卡、验收标准、项目背景、修改记录和复验结果。换一个类似小任务再做一遍，看看自己能否少依赖示范。网页任务完成与实际作品验收分开，工程成果仍需教师核对。
+
+## 必学衔接：把一次对话变成可复用的流程
+
+完成上面同一个小任务后，打开本站05《用AI设计解决问题的系统》，用目标、输入、步骤、人机分工、验证、反馈六项画一张流程图，并实际运行一次。可以沿用游戏任务，也可以选择学习或生活中的小问题。不要求读完外部书籍课程，不要求安装自动化工具；实践证据由教师核对。
+
+## 拓展：系统理解人与AI怎样分工
+
+[Anthropic AI Fluency：Framework and Foundations](<a href="https://academy.claude.com/courses/ai-fluency-framework-foundations" target="_blank" rel="noopener">https://academy.claude.com/courses/ai-fluency-framework-foundations</a>)
+
+官方系统课程，围绕Delegation、Description、Discernment、Diligence组织人机协作能力。本轮仅核对课程介绍，未逐节观看，不作为已完整审课的视频推荐。英语为主要阅读门槛，字幕、语言和登录要求以打开后的页面为准；本次不要求学完才能过站。
+
+原来的Claude Code技巧视频与MCP/Agent长教程保留在补充学习中。它们用于看操作或进阶，不替代主线练习。本轮没有新增未经核验的B站/小红书视频。
+
+## 来源与核对记录
+
+核对日期：2026-11-03。前三份中文官方页面已读取正文，收录依据分别为：入门表达、成功标准、项目上下文与运行检查；难度从短文到开发工具参考递进。官方文档按指定片段阅读，不要求通读技术手册。AI Fluency为候选拓展，证据仅限课程介绍。未收录模型排行榜、速成变现、无字幕证据的搬运视频或以插件安装作为前提的课程。
+
+本页只提供学习导航、外链和原创练习，不转载整份官方教程。外站可能需要网络条件或登录；打不开时可先完成本站练习，稍后补读，不将“已打开链接”算作掌握。
+</pre></html>

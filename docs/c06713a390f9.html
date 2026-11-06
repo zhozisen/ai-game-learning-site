@@ -1,0 +1,59 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>05_用AI设计解决问题的系统</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}</style><h1>05_用AI设计解决问题的系统</h1><p>这是补充原稿，旧站号可能与新版不同。学习顺序、教学基线和验收以当前课堂为准。</p><pre># 用AI设计解决问题的系统：从游戏到学习与生活
+
+目标：把一个真实目标变成可以执行、检查和改进的流程。前置：完成本站03的小任务协作练习。这里的架构指目标、资料、步骤、人机分工与反馈的安排；模型训练与复杂代理留到有需要时再学。
+
+## 少量必学：画一张图，实际跑一次
+
+目标 → 输入资料 → 拆步骤 → 人与AI分工 → 检查结果 → 反馈改进。
+
+选择一个小任务：复习一个知识点、整理一次活动计划，或为小游戏设计一项功能。只选一个，先手工串联，不要求付费、接API或部署自动化。
+
+| 要写清什么 | 需要回答的问题 |
+|---|---|
+| 目标与边界 | 为谁解决什么问题？这次明确不做什么？ |
+| 输入资料 | 哪些是可靠原始资料？哪些是AI推测？哪些信息不能交出去？ |
+| 步骤与交接 | 每一步输入、输出是什么？下一步能直接接着用吗？ |
+| 人机分工 | AI适合起草什么？哪些判断、授权和最终决定由自己负责？ |
+| 验证 | 用什么实际结果判定成功？怎样发现错误？ |
+| 反馈与停止 | 失败后重做哪一步？何时求助、停止或恢复上一版？ |
+
+练习示例（本站原创）：选一段已有学习资料 → 自己确定一个学习目标 → AI辅助出三道题并附依据位置 → 自己回答 → 回原资料核查答案与解释 → 记录误解 → 调整复习内容。AI出的题和答案也可能错；不能用同一份未经核查的AI答案证明自己掌握。
+
+交付：一张流程图或步骤表、一次真实执行记录、发现的一个问题及修改后的流程。再说明它如何迁移到游戏开发中的需求、实现与验证。先比较是否真的省时或改善质量；不要求把生活中的每件事自动化。网页阅读与自报完成不等于这份实践已获教师验收，暂不新增自动评分。
+
+## 按需参考一：吴恩达——建立完整的生成式AI应用认知
+
+[Generative AI for Everyone：官方课程](<a href="https://www.coursera.org/learn/generative-ai-for-everyone" target="_blank" rel="noopener">https://www.coursera.org/learn/generative-ai-for-everyone</a>)
+
+用途：补齐AI能做什么、不能做什么、如何从构想走到应用，以及如何影响日常工作。官方列为初级课程，约6小时；不把这个时长当作学生必需投入或完成保证。已有提示词基础的同学重点查项目生命周期、应用选择与能力局限，不重复通读已有内容。
+
+学习任务：用课程的应用视角检查上面的流程，指出一个适合AI的步骤和一个需要人核查的步骤。本站只核对课程介绍与目录，未逐节审看视频；语言、字幕、登录和收费以实际页面为准，不承诺免费完整学习。
+
+## 按需参考二：Donella Meadows——先理解系统如何运转
+
+[Thinking in Systems：出版社书籍介绍](<a href="https://www.chelseagreen.com/product/thinking-in-systems/" target="_blank" rel="noopener">https://www.chelseagreen.com/product/thinking-in-systems/</a>)
+
+[Donella Meadows Project：系统思考资源与视频入口](<a href="https://donellameadows.org/systems-thinking-resources/" target="_blank" rel="noopener">https://donellameadows.org/systems-thinking-resources/</a>)
+
+用途：理解系统边界、存量与流量、反馈和延迟。这是通用系统思考，不是AI操作教程。教师可选读相关概念，学生先看资源页的冰山模型或浴缸模型；书籍按兴趣借阅或购买，不作为过站要求。资源页的视频入口未逐个播放核验，英语与访问条件需自行确认。
+
+学习任务：分析“教程越收藏越多，却没有做出作品”：哪些东西一直在积累？什么实际动作能产生作品？反馈多久才出现？先提出一个小改变，再观察结果，不能把相关现象直接当因果证明。
+
+## 按需参考三：Ethan Mollick——设计人与AI的合作方式
+
+[Co-Intelligence: Living and Working with AI：出版社介绍](<a href="https://www.penguinrandomhouse.com/books/741805/co-intelligence-by-ethan-mollick/" target="_blank" rel="noopener">https://www.penguinrandomhouse.com/books/741805/co-intelligence-by-ethan-mollick/</a>)
+
+[斯坦福商学院：Co-Intelligence讲座介绍与入口](<a href="https://www.gsb.stanford.edu/insights/co-intelligence-ai-masterclass-ethan-mollick" target="_blank" rel="noopener">https://www.gsb.stanford.edu/insights/co-intelligence-ai-masterclass-ethan-mollick</a>)
+
+用途：从同事、教师、教练等角色理解人机协作，迁移到学习、创意和工作。先用讲座介绍了解观点，有兴趣再读书，不必两份都学。书中的工具能力和示例有时代背景，需要用自己的任务检验。
+
+学习任务：让AI分别扮演解释者和提问者，用同一个知识点比较哪种安排更能帮助自己独立回答。评价依据是自己的表现，不只看AI回答是否流畅。
+
+## 进阶衔接：需要自动执行时再学Agent架构
+
+需要串联工具、多步骤自动执行或重复评估时，进入本站04《AI开发进阶》的“架构设计与系统课程”部分，先学工作流选择，再查Skills、MCP、子代理与Hook。本页不重复那些技术教程。
+
+## 来源与使用边界
+
+2026-11-03核对官方课程介绍、出版社书籍介绍及系统资源页；斯坦福页面本轮正文抓取受限，依据此前可见介绍保留入口，不声称视频已完整审看。练习、表格与验收要求为本站原创安排。只收录介绍和外链，不复制付费书籍或课程全文；外部资源不要求全部完成。官方介绍能确认主题，不能证明每个案例都适用于学生环境。
+</pre></html>

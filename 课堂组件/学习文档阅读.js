@@ -1,7 +1,16 @@
 (function(root,f){const api=f();if(typeof module==='object'&&module.exports)module.exports=api;else root.LessonReader=api;})(globalThis,()=>{
- function render(container,text){
+ function selectSection(text,title){
+  if(!title)return{text,found:true};const lines=text.split('\n'),matches=[];let fenced=false;
+  lines.forEach((line,i)=>{if(line.trim().startsWith('```')){fenced=!fenced;return;}if(fenced)return;const m=/^(#{1,6})\s+(.*)$/.exec(line);if(m&&m[2].trim()===title)matches.push({index:i,level:m[1].length});});
+  if(matches.length!==1)return{text,found:false};const {index,level}=matches[0];let end=lines.length;fenced=false;
+  for(let i=index+1;i<lines.length;i++){if(lines[i].trim().startsWith('```')){fenced=!fenced;continue;}const m=!fenced&&/^(#{1,6})\s+/.exec(lines[i]);if(m&&m[1].length<=level){end=i;break;}}
+  return{text:lines.slice(index,end).join('\n'),found:true};
+ }
+ function render(container,text,options={}){
+  const section=selectSection(text,options.sectionTitle);text=section.text;
   const doc=container.ownerDocument;container.replaceChildren();let code=null,table=null,list=null;
   const inline=(el,line)=>{const re=/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)|(https?:\/\/[^\s<>]+)/g;let start=0,m;while((m=re.exec(line))){el.append(doc.createTextNode(line.slice(start,m.index)));const a=doc.createElement('a');a.textContent=m[1]||m[3];a.href=m[2]||m[3];a.target='_blank';a.rel='noopener';el.append(a);start=re.lastIndex;}el.append(doc.createTextNode(line.slice(start)));};
+  if(!section.found){const notice=doc.createElement('p');notice.setAttribute('role','status');notice.textContent='未能唯一定位指定章节，以下保留完整讲义；请按标题查找或向教师反馈。';container.append(notice);}
   for(const line of text.split('\n')){
    if(line.trim().startsWith('```')){if(code)code=null;else{code=doc.createElement('pre');container.append(code);}continue;}
    if(code){code.textContent+=line+'\n';continue;}
@@ -19,6 +28,7 @@
    const heading=/^(#{1,6})\s+(.*)$/.exec(line);const el=doc.createElement(heading?'h'+Math.min(heading[1].length+1,6):'p');
    inline(el,heading?heading[2]:line);container.append(el);
   }
+  return{found:section.found};
  }
- return {render};
+ return {render,selectSection};
 });

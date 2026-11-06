@@ -1,0 +1,16 @@
+[
+  {
+    "id": "teacher-light",
+    "title": "接光点",
+    "author": "教师示范",
+    "description": "一个从移动、得分、失败到重开的最小游戏，用来验证Web交付。",
+    "controls": "点击开始后，用左右方向键或屏幕按钮接光点；漏接三次结束。",
+    "playUrl": "examples/web-demo/index.html",
+    "repoUrl": "https://github.com/zhozisen/ai-game-learning-site",
+    "version": "1.0.0",
+    "cover": "assets/teacher-demo.svg",
+    "approved": true,
+    "reviewedAt": "2026-11-06",
+    "kind": "teacher-demo"
+  }
+]

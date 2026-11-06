@@ -492,3 +492,26 @@ func _ready() -> void:
         score += 1
     print(score)
 `;
+
+// 零基础过渡：输出先折叠，学生先预测再核对，不增加重复提交。
+window.StructuredLessons.scripts.microLessons=[
+ {title:'1 变量与赋值',prompt:'score先为0，再执行score = 2，打印什么？只改赋值这一行再比较。',code:'extends Node\n\nfunc _ready() -> void:\n    var score: int = 0\n    score = 2\n    print(score)',expected:'输出2。赋值把新值保存给变量，不是判断两边是否相等。',correction:'若仍输出旧值，核对是否保存、是否运行正确场景；比较条件通常用==。'},
+ {title:'2 条件与缩进',prompt:'score为2，条件是score < 2时才加1。先猜输出，再把条件改成score <= 2观察。',code:'extends Node\n\nfunc _ready() -> void:\n    var score: int = 2\n    if score < 2:\n        score += 1\n    print(score)',expected:'原代码输出2；只把<改为<=后输出3。条件成立才执行更深缩进的语句。',correction:'不要同时改初值和条件，否则难以判断是哪一处引起变化。'},
+ {title:'3 定义与调用',prompt:'函数定义本身会自动加分吗？找调用位置，预测输出。',code:'extends Node\n\nfunc add_one(value: int) -> int:\n    return value + 1\n\nfunc _ready() -> void:\n    var score: int = 2\n    score = add_one(score)\n    print(score)',expected:'输出3。定义函数只说明动作；调用传入2，返回3，再赋给score。',correction:'若只写add_one(score)而不接收结果，score仍为2。先分清返回值和变量修改。'},
+ {title:'4 一次初始化与帧更新',prompt:'为什么加分放在_process里可能一直增加？先比较两个函数的执行时机。',code:'extends Node\n\nvar frame_count: int = 0\n\nfunc _ready() -> void:\n    print("准备一次")\n\nfunc _process(_delta: float) -> void:\n    frame_count += 1',expected:'同一节点这次进入树时_ready执行一次；_process随帧更新，frame_count持续变化。帧数取决于实际运行时长和帧率，不是固定数字。',correction:'只需要一次的计分应由相应事件触发；不要用每帧更新代替一次事件。停止运行后再改代码。'}
+];
+window.StructuredLessons.project.prerequisiteChecks=[
+ {skill:'保存与运行',observable:'重开工程能找到自己场景并运行',returnUnit:'editor'},
+ {skill:'场景实例',observable:'能解释两个实例哪些修改共享、哪些局部保留',returnUnit:'scenes'},
+ {skill:'脚本基础',observable:'能先预测一段条件函数的结果，再改一个因素验证',returnUnit:'scripts'},
+ {skill:'事件与信号',observable:'知道发出者、连接位置与处理函数',returnUnit:'signals'},
+ {skill:'排错',observable:'能提供复现、错误依据、修复和复验',returnUnit:'debug'}
+];
+window.StructuredLessons.project.lead='默认沿用官方躲避小游戏，先走一条路线。接星星保留为替代参考，不要求同时做两款。先核对本机版本和五项前置，再进入阶段检查。';
+window.StructuredLessons.project.instructionSteps=[
+ {action:'阶段1：按官方“设置项目”创建独立工程，核对实际版本和主场景，先保存再运行。',expected:'项目能从指定入口启动；知道自己的工程目录。',help:'找不到主场景回编辑器单元；官方资源按教程指定来源获取，不随意复制未知工程。'},
+ {action:'阶段2：按“创建玩家场景”“编写玩家代码”完成输入与移动，先在局部场景检查。',expected:'不操作时不乱移动，方向输入有对应变化，玩家可保持在目标区域。',help:'先查输入动作名称和运行入口，只修改一个因素；代码看不懂回脚本微步骤。'},
+ {action:'阶段3：按“创建敌人”“游戏主场景”接入挑战、计时或得分与必要信号。',expected:'挑战确实出现，反馈与实际状态一致，能说出一个事件和数据修改处。',help:'只检查一条触发链；不要同时替换整套素材或新增背包。'},
+ {action:'阶段4：按“游戏信息显示”做开始、状态和结束提示，从第一屏实际完成一局。',expected:'开始之前状态明确，结束后不继续计本局分，提示可理解。',help:'事件连接和初始化要核对，不能只隐藏数字掩盖状态错误。'},
+ {action:'阶段5：按“完成了”及本站清单验证重开，连续两局，再请同学独立试玩。',expected:'新局分数和临时对象按规则重置，旧信号不重复处理；保留一个真实卡点和改动决定。',help:'先保存工程与记录，导出放第7站；官方完整工程仍需在实际设备验证，网页不自动判工程合格。'}
+];

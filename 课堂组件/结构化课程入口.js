@@ -10,13 +10,13 @@
   window.StructuredLessons=Object.fromEntries(s.lessons.map(d=>[d.id,d]));
   Object.assign(StructuredContent,{units:s.lessons.map(d=>d.name),resources:s.lessons.map(d=>d.resources),documents:s.documents,outcomes:s.lessons.map(d=>d.goal),extras:s.extras});
  }
- document.title=titles[Number(id)]+' · 结构化学习候选预览';
- document.querySelector('header>span').textContent='第 '+id+' 站 / '+titles[Number(id)]+' · 候选预览';
+ document.title=titles[Number(id)]+' · 结构化学习课堂';
+ document.querySelector('header>span').textContent='第 '+id+' 站 / '+titles[Number(id)]+' · 正式课程';
  document.querySelector('#sidebar>h2').textContent=titles[Number(id)];
  document.querySelector('#sidebar>.muted').textContent='每次一个单元，按目标学习、实践和检查。';
  document.querySelector('#sidebar>.eyebrow').textContent='LEARNING JOURNEY / 0'+id;
  const nav=document.createElement('nav');nav.className='station-nav';nav.setAttribute('aria-label','全站学习路径');
  titles.forEach((title,i)=>{const a=document.createElement('a');a.href='?station='+i;a.textContent='0'+i+' '+title;if(i===Number(id))a.setAttribute('aria-current','page');nav.append(a);});
- document.querySelector('header').after(nav);
+ /* 站内五级导航由课程分级界面接管，站点切换返回地图。 */
  const home=document.createElement('a');home.href='index.html';home.target='_top';home.textContent='返回轨道地图 ↗';home.className='map-return';document.querySelector('#sidebar .aside-foot').prepend(home);
 })();
