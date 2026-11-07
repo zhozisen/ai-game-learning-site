@@ -7,8 +7,8 @@ const visuals={
  'git-save':{kind:'flow',title:'哪些改动会进入这次提交？',steps:[
   ['检查改动','用 git diff 核对工作区'],['暂存选定内容','用 git add 选入这次要提交的改动'],['写提交记录','用 git commit 把暂存内容写入本地历史']]},
  'git-sync':{kind:'compare',title:'提交后，为什么 GitHub 还是旧的？',paths:[
-  ['只做本地提交','修改 README','生成本地提交','GitHub 仍是旧版'],
-  ['提交后推送','修改 README','生成本地提交','GitHub 对应分支出现新版']]},
+  ['只做本地提交','修改 README','生成本地提交','未推送','GitHub 仍是旧版'],
+  ['提交后推送','修改 README','生成本地提交','推送到目标分支','GitHub 对应分支出现新版']]},
  'git-pr':{kind:'flow',title:'一处改动怎样进入主分支？',steps:[
   ['在自己的分支改','提交与本次任务相关的文件'],['发起 PR','说明目的、范围与验证结果'],['同学审阅差异','核对具体改动，再决定合并'],['合并后核对','同步主分支，确认结果在正确版本']]},
  'godot-scenes':{kind:'tree',title:'一个可复用的金币场景由什么组成？',tree:[
@@ -32,8 +32,8 @@ const visuals={
  'life-map':{kind:'flow',title:'一个游戏从点子走到交付，需要哪些成果？',steps:[
   ['构思与验证','说清核心玩法，用原型验证关键操作'],['规划与开发','定首版范围，完成可玩的版本'],['测试与发布','复验主要玩法，让同学能打开'],['维护与收尾','记录反馈，决定继续修复还是归档']]},
  'life-prototype':{kind:'compare',title:'两种原型做法，哪一种更早发现风险？',paths:[
-  ['先做完整画面','想验证跳跃是否好玩','先做角色美术和场景','完成后才发现操作不好用'],
-  ['先测关键操作','想验证跳跃是否好玩','用方块先做能跳的平台','早一步发现操作问题，及时调整']]},
+  ['先做完整画面','想验证接物能不能控制得准','先做角色美术和场景','画面做完才发现目标接不到'],
+  ['先测关键操作','想验证接物能不能控制得准','用方块先试移动速度和目标密度','先调到可操作，再补画面']]},
  'arch-modules':{kind:'relation',title:'修改加分规则，要改哪个模块？',steps:[
   ['玩家操作','报告收集动作','接收输入并报告发生的动作。'],
   ['回合规则','计算并保存分数','在这里决定何时加分、加多少分。'],
@@ -143,6 +143,34 @@ Object.assign(visuals,{
   ['构建失败','检查发布候选','构建缺少必要文件','停止发布，补齐后重新构建'],
   ['上线故障','检查发布候选','上线后实测发现不可用','恢复上一个完整可用产物，再复验网址'])
 });
+// Keep only concrete details that are not already conveyed by the diagram.
+const demoNotes={
+ 'intro-start':'第一版先用方块当角色，等一整局能玩再换正式素材。',
+ 'intro-record':'先用隔离浏览器窗口练习导入，核对恢复的是哪份学习记录。',
+ 'git-save':'试着只改 README 的一行操作说明，暂存时把未完成素材留在这次提交之外。',
+ 'git-restore':'在工程副本里制造一次错误，先保存当前草稿，再尝试恢复。',
+ 'git-sync':'推送后，在第二个副本拉取目标分支，核对两边是否看到同一个提交。',
+ 'git-pr':'两人分角色练习。一人改说明，另一人核对改动里的文字和链接。',
+ 'git-bisect':'每个候选版本都用相同的操作，连续重开两次再拾取一次。',
+ 'godot-editor':'自己做一个带 Label 的 2D 场景，再分别用两种运行入口核对画面。',
+ 'godot-scenes':'先改一个实例的位置，再改源场景的默认显示，观察两个实例分别继承了什么。',
+ 'godot-script':'用 speed = 100 做基线，只改速度再运行，核对角色每次移动的差别。',
+ 'godot-debug':'在副本中故意写错一个节点路径，再用输出定位。',
+ 'godot-physics':'示例中的角色用 CharacterBody2D 移动，金币用 Area2D 检测。',
+ 'godot-spawn':'练习时可以每秒生成一个方块，用 queue_free 清理越界实例。',
+ 'ai-goal':'再补一句本次范围：计分和素材都沿用当前版本。',
+ 'ai-verify':'连续暂停并恢复两次，再结束和重开一局。',
+ 'dis-start':'在课程固定工程里核对单人入口 game_singleplayer.tscn，并打开它查看实际实例。',
+ 'dis-motion':'试一次提前松开跳跃键，沿原脚本核对为什么上升阶段会缩短。',
+ 'dis-spawn':'从 Gun 对 Bullet 场景的引用进入源码，再找实例化的位置。',
+ 'dis-state':'课程主例可用于观察暂停，但缺少完整的玩家失败与重开。验证结束行为时另看补充案例。',
+ 'life-pitch':'示例面向短时休息的玩家，目标出现节奏逐渐加快。',
+ 'arch-modules':'工程很小时，可以先把少量对象组合起来，确保职责说得清楚。',
+ 'arch-data':'测试负时限。应明确拒绝，或按预先约定的默认值处理。',
+ 'prod-playtest':'观察时先让同学自己找开始入口，记下他实际点了哪里。',
+ 'pub-web':'用教师示范包走一遍 HTTP 启动。部署验收时应从网站入口运行。',
+ 'pub-device':'以接光点为例，先测试方向键，再漏接至结束并点重来。'
+};
 function has(id){return Object.hasOwn(visuals,id)}
 function rail(steps,kind,esc){
  const item=([name,caption],i)=>{
@@ -153,7 +181,7 @@ function rail(steps,kind,esc){
  };
  return '<ol class="visual-rail">'+steps.map(item).join('')+'</ol>';
 }
-function render(id,esc){
+function render(id,esc,{conclusion,readingPath}={}){
  if(!has(id))return '';
  const v=visuals[id], kind=v.kind;
  let body;
@@ -174,7 +202,11 @@ function render(id,esc){
     '<button type="button" class="primary" data-visual-run disabled>'+esc(v.action)+'</button><p class="visual-readout" data-visual-result role="status">选一个预测，再验证。</p>';
   }
  }
- return '<article class="lesson-visual" data-lesson-title="'+esc(v.title)+'" data-visual-kind="'+kind+'">'+body+'</article>';
+ const takeaway=kind!=='experiment'&&conclusion?'<p class="visual-takeaway">'+esc(conclusion)+'</p>':'';
+ const note=demoNotes[id]?'<p class="visual-note"><b>操作提示</b> '+esc(demoNotes[id])+'</p>':'';
+ const next=readingPath?'<p class="reading-path"><b>学习顺序</b> '+esc(readingPath)+'</p>':'';
+ const entry=id==='pub-register'?'<button type="button" data-visual-works>打开同学作品，查看发布提示词 ↗</button>':'';
+ return '<article class="lesson-visual" data-lesson-title="'+esc(v.title)+'" data-visual-kind="'+kind+'">'+takeaway+body+note+next+entry+'</article>';
 }
 function bind(box,id){
  const el=box.querySelector('.lesson-visual');

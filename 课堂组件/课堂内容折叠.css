@@ -37,6 +37,8 @@
 .lesson-visual .visual-rail button[aria-pressed=true]{border-color:var(--white)}
 .lesson-visual .visual-node[data-reached=true]{border-color:#a8c7f2}
 .lesson-visual .visual-readout{margin-top:10px;padding:9px 11px;border-left:2px solid var(--edge);background:#171717}
+#stage-content .lesson-visual .visual-takeaway{margin-top:0;color:var(--white);font-weight:600}
+#stage-content .lesson-visual .visual-note,#stage-content .lesson-visual .reading-path{font-size:.93em}
 .lesson-visual .visual-compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:8px 0}
 .lesson-visual .visual-compare section{padding:10px 12px;border:1px solid var(--edge)}
 .lesson-visual .visual-compare h4{margin:0 0 6px}
