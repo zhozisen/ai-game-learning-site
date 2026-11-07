@@ -1,0 +1,25 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配套讲解：2 上下文与新会话交接；6 跑得慢时先判断慢在哪里</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>配套讲解：2 上下文与新会话交接；6 跑得慢时先判断慢在哪里</h1><p>本页只摘取当前任务指定的本站讲义章节，按页面顺序阅读；不要求读完整原稿。</p><section id="section-0"><h2>2 上下文与新会话交接</h2><pre>
+主资料：[Claude如何记住项目](<a href="https://code.claude.com/docs/zh-CN/memory" target="_blank" rel="noopener">https://code.claude.com/docs/zh-CN/memory</a>)，读项目说明文件及有效指令；按需回看最佳实践。工具的自动记忆与压缩机制不同，不默认所有聊天都共享记忆。
+
+工作记忆分三种：长期约定写项目说明；当前任务和已验证进展写交接记录；真实现状以工程和Git差异为准。文件记录也可能过期，要带核对日期与实际版本。
+
+最小交接：项目目标、实际引擎版本、相关文件、已完成且有证据的内容、未完成与报错、下一步、不要改什么。不要复制全部闲聊，更不要包含密码与API Key。
+
+练：保存一次改动与检查记录，新开会话，让AI先读工程并复述当前状态；对照文件纠正一个遗漏，再继续。测：新会话建议改一个已删除的脚本，应该先核对实际文件和旧交接是否过期，而不是照旧路径生成同名文件覆盖。
+
+多个会话：先限定各自任务、写入文件与集成负责人。两个会话同时修改同一段代码容易覆盖；新手先串行完成，进阶再学分支隔离与并行集成。“回答变差”要找可观察证据，不能仅凭感觉归因模型降智。
+
+</pre></section><section id="section-1"><h2>6 跑得慢时先判断慢在哪里</h2><pre>
+主资料：最佳实践中“更改默认设置”；[模型配置](<a href="https://code.claude.com/docs/zh-CN/model-config" target="_blank" rel="noopener">https://code.claude.com/docs/zh-CN/model-config</a>)仅按需读设置模型、思考强度与上下文主题。不记模型排行榜，不承诺换模型就更快、更正确或更便宜。
+
+| 观察 | 优先检查 | 小实验 |
+|---|---|---|
+| 总是重新理解项目 | 背景是否缺失或过期 | 给一份短交接，核对能否定位文件 |
+| 一直读无关内容 | 任务范围与资料是否太杂 | 缩到一个可验收变化，指定相关入口 |
+| 等命令很久 | 命令、下载、引擎或权限等待 | 查看工具执行状态和错误，不用重复催促掩盖阻塞 |
+| 方案复杂但小任务简单 | 推理强度与工具流程是否过重 | 在可恢复任务上对比较简单设置，保留相同验收 |
+| 修改反复失败 | 前置知识、证据或能力是否不足 | 查实际错误与文档，必要时升级模型或求助教师 |
+
+练：记录一次相同小任务的耗时位置、改了什么、结果质量和未控制因素。测：等待下载资源时换模型能直接加速网络吗？不能。不能以单次用时就宣称一个模型全面优于另一个。
+
+</pre></section><p><a href="e4ebc4d95ddf.html">按需查看完整原稿</a></p></html>

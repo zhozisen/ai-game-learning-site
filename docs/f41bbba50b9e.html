@@ -1,5 +1,4 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>02_从LLM到Agent_指挥AI的八级台阶</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}</style><h1>02_从LLM到Agent_指挥AI的八级台阶</h1><p>这是补充原稿，旧站号可能与新版不同。学习顺序、教学基线和验收以当前课堂为准。</p><pre># 从 LLM 到 Agent —— 指挥 AI 的八级台阶
-
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>02_从LLM到Agent_指挥AI的八级台阶</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>02_从LLM到Agent_指挥AI的八级台阶</h1><p>完整参考原稿，按需回查。旧站号可能不同，当前任务与验收以课堂为准。</p><section id="section-0"><h2>从 LLM 到 Agent —— 指挥 AI 的八级台阶</h2><pre>
 | 为什么有这份文档 | 五件套教你&quot;管好一个 AI&quot;，这份教你**设计和升级 AI 的工作台**——从懂 LLM 的底牌，到给 AI 插工具（MCP）、教技能（Skill）、装插件，最后把整套本事用到做游戏和学习上 |
 |---|---|
 | **不读会怎样** | 你会一直停在&quot;跟 AI 聊天、它帮我写代码&quot;的水平；别人用 MCP 一句话让 AI 还原设计稿、用 Skill 让 AI 永远按专业套路干活，你只能一句一句现场教 |
@@ -7,8 +6,7 @@
 | **怎么用** | 主线（先读我＋01 号）通关后，一级一级往上走；每级的上手动作做完再上一级；视频按&quot;用在哪级&quot;表跳着看 |
 | **什么时候用** | 第 3 站主线通关后（半天~1 天）；第 6 站做项目时随时回来查 |
 
-## 先看全景：两条学习线，合流成八级台阶
-
+</pre></section><section id="section-1"><h2>先看全景：两条学习线，合流成八级台阶</h2><pre>
 学&quot;指挥 AI&quot;有两条线，合在一起就是一条从&quot;会用&quot;到&quot;会设计&quot;的楼梯：
 
 - **概念线（懂它、跟它说话）**：AI 通识概念 → LLM → 提示词 → Agent
@@ -28,24 +26,21 @@
 | 7 | 插件 Plugins | 商店里买现成的工具箱 | 装了就能用 |
 | 8 | Apply | 把整套本事用到真事上 | 做游戏 · 用 AI 学一切 |
 
-## 第 1 级 · AI 通识概念与 LLM：懂底牌
-
+</pre></section><section id="section-2"><h2>第 1 级 · AI 通识概念与 LLM：懂底牌</h2><pre>
 **LLM（大语言模型）**= Claude、GPT 们的&quot;大脑&quot;：一个读遍了图书馆、特别会&quot;接话&quot;的超级笔友。它不是&quot;查资料报答案&quot;，而是&quot;一个字一个字接出最像答案的话&quot;——所以它会有**幻觉**（一本正经编造）、**知识截止**（新东西不知道）、**上下文窗口**（聊太长会失忆）。
 
 | 上手动作 |
 |---|
 | 01 号文档的五组 21 个概念就是 AI 通识总表，本级只补一个新词：LLM。回读 01 号第一组&quot;它是怎么工作的&quot;，练到能对同学讲清&quot;AI 为什么会一本正经地胡说&quot; |
 
-## 第 2 级 · 提示词：会说话
-
+</pre></section><section id="section-3"><h2>第 2 级 · 提示词：会说话</h2><pre>
 提示词质量 = 产出上限（概念表已讲）。本级进阶只记一个公式——**好提示词四零件：任务 + 范围 + 维度 + 格式**（01 号过站任务已体会过一次）。
 
 | 上手动作 |
 |---|
 | 以后每次派活前默念四零件；说不清的，先把话丢给 AI：&quot;帮我优化这条提示词：……&quot; |
 
-## 第 3 级 · Agent：会用&quot;带手的 AI&quot;
-
+</pre></section><section id="section-4"><h2>第 3 级 · Agent：会用&quot;带手的 AI&quot;</h2><pre>
 Agent = 能自己读写文件、自己跑命令的 AI（概念表第五组&quot;带手的 AI&quot;）。会选工具、会换着用，才算跨过这级：
 
 | 工具 | 是什么 | 对你 |
@@ -59,8 +54,7 @@ Agent = 能自己读写文件、自己跑命令的 AI（概念表第五组&quot;
 |---|---|
 | **看完做什么** | 挑 3 个技巧立刻用到自己的知识包上 |
 
-## 第 4 级 · Harness 设计思维：会搭台
-
+</pre></section><section id="section-5"><h2>第 4 级 · Harness 设计思维：会搭台</h2><pre>
 **Harness（挽具/马具）**：拴住马力、让马好好拉车的那套装备。**Harness 设计思维 = 不问&quot;AI 能帮我干什么&quot;，而问&quot;我该给 AI 搭一张什么样的工作台，它才能稳定干活&quot;。**
 
 你已经搭过一个迷你版——**驾驭五件套就是 harness 的雏形**：手册（CLAUDE.md）定规矩、手让它自己干、验证尺定&quot;完成&quot;、护栏防跑偏、记忆攒经验。本级的升级：从&quot;随手用&quot;变成&quot;刻意设计&quot;——开工前先想清楚：规矩写在哪、验证怎么定、工具配哪些、记忆存哪里。这个学生包、老师的工作区，都是照这套思维搭出来的。
@@ -69,8 +63,7 @@ Agent = 能自己读写文件、自己跑命令的 AI（概念表第五组&quot;
 |---|
 | 把五件套重排成一张&quot;工作台设计图&quot;：四栏——规矩（写什么文件）/ 验证（怎么算完成）/ 工具（配哪些）/ 记忆（存哪里），给你的下一个项目填满 |
 
-## 第 5 级 · MCP：给 AI 装插座
-
+</pre></section><section id="section-6"><h2>第 5 级 · MCP：给 AI 装插座</h2><pre>
 **MCP（Model Context Protocol）**= AI 界的&quot;USB 接口&quot;：一个统一标准，让任何 AI 都能接上任何工具——查网页、读设计稿、操作表格，插上就能用，不用每个工具单独造一根线。
 
 | 配套视频 | 《Claude Code 从 0 到 1 全攻略》 <a href="https://www.bilibili.com/video/BV14rzQB9EJj/" target="_blank" rel="noopener">https://www.bilibili.com/video/BV14rzQB9EJj/</a> ——看 21:09&quot;安装 MCP Server&quot;和 23:06&quot;用 MCP 还原设计稿&quot;两段 |
@@ -79,8 +72,7 @@ Agent = 能自己读写文件、自己跑命令的 AI（概念表第五组&quot;
 
 &gt; 这部视频同时覆盖第 3~7 级（MCP / SubAgent / Agent Skill / Hook / 上下文管理），建议收藏，按台阶跳着看。
 
-## 第 6 级 · Skill：给 AI 岗位说明书 ⭐（重点）
-
+</pre></section><section id="section-7"><h2>第 6 级 · Skill：给 AI 岗位说明书 ⭐（重点）</h2><pre>
 **Skill = 教 AI&quot;怎么做某类事&quot;的说明书文件夹。**为什么是全篇重点：提示词说一次管一次，**Skill 写一次管永远**——这是从&quot;AI 用户&quot;变&quot;AI 设计者&quot;的那根杠杆，你和&quot;别人家的 AI&quot;差距最大的就在这。
 
 你早就在用了：包内 `.claude\skills` 里躺着十几个游戏开发技能——`godot-nodes-scenes` 教 AI 规范拼场景、`godot-signals-groups` 教 AI 用对讲机、`godot-gdscript-headless-testing` 教 AI 自己测代码……第 6 站做游戏全靠它们。
@@ -90,8 +82,7 @@ Agent = 能自己读写文件、自己跑命令的 AI（概念表第五组&quot;
 | ① 打开 `.claude\skills\` 任选一个，看它的 SKILL.md——就是一份&quot;专业的事怎么做&quot;的说明书 |
 | ② 让 AI 帮你给自己的项目写一个小技能（例如&quot;每次交作业前自查三件事&quot;），存进技能文件夹 |
 
-## 第 7 级 · 插件 Plugins：买现成的工具箱
-
+</pre></section><section id="section-8"><h2>第 7 级 · 插件 Plugins：买现成的工具箱</h2><pre>
 **插件 = 官方/社区打包好的能力扩展，市场里装了就能用**（Claude Code、Trae 都有插件生态）。它和 Skill 的分工：
 
 | | Skill | 插件 |
@@ -101,15 +92,13 @@ Agent = 能自己读写文件、自己跑命令的 AI（概念表第五组&quot;
 
 本级要求&quot;知道、会装&quot;即可，不必急着装。
 
-## 第 8 级 · Apply：用到真事上
-
+</pre></section><section id="section-9"><h2>第 8 级 · Apply：用到真事上</h2><pre>
 装备全部到位，Apply = 拿真事检验。两个方向：
 
 1. **做游戏**——第 4~7 站全是 Apply：拆真游戏（指挥 AI 动刀）、写 GDD（用它当策划搭档）、第 6 站从灰盒到发布（harness 全开）
 2. **用 AI 学一切**——把这套方法论反过来用在学习上：**DeepTutor**（开源 AI 家教） <a href="https://github.com/HKUDS/DeepTutor" target="_blank" rel="noopener">https://github.com/HKUDS/DeepTutor</a> ——把任意 PDF/课本/论文变成深度对话课，AI 讲解、出题、追问到你真懂。体会一下：会指挥 AI 的人，连学习都是加速的
 
-## 配套资源总表
-
+</pre></section><section id="section-10"><h2>配套资源总表</h2><pre>
 | 资源 | 是什么 | 用在哪级 |
 |---|---|---|
 | B 站《10 分钟学会 24 个 ClaudeCode 使用技巧》 <a href="https://www.bilibili.com/video/BV1SddcBFESs/" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1SddcBFESs/</a> | Claude Code 新手技巧速览 | 第 3 级 |
@@ -117,13 +106,11 @@ Agent = 能自己读写文件、自己跑命令的 AI（概念表第五组&quot;
 | DeepTutor <a href="https://github.com/HKUDS/DeepTutor" target="_blank" rel="noopener">https://github.com/HKUDS/DeepTutor</a> | 开源 AI 深度辅导：文档 → 互动课 | 第 8 级 |
 | Git 系统教程（廖雪峰）在第 1 站先读我 ｜ Godot 视频课在第 2 站先读我 | 各站延伸资料 | — |
 
-## 过站任务（半天~1 天）
-
+</pre></section><section id="section-11"><h2>过站任务（半天~1 天）</h2><pre>
 1. 看两个 B 站视频（共约 20 分钟），挑 3 个技巧立刻用上
 2. 打开包内 `.claude\skills` 读一个技能说明书，说得出&quot;它在教 AI 什么&quot;
 3. 用 DeepTutor 把一篇你感兴趣的文档变成互动课，完整学一遍
 
-## 过站验收
-
+</pre></section><section id="section-12"><h2>过站验收</h2><pre>
 三个问题全答上即过：① 八级台阶的顺序？② MCP / Skill / 插件各自的比喻（插座 / 说明书 / 工具箱）？③ 五件套和 harness 什么关系（雏形 → 刻意设计）？——过了这级，第 6 站你就是&quot;设计师入场&quot;，不是&quot;用户入场&quot;。
-</pre></html>
+</pre></section></html>

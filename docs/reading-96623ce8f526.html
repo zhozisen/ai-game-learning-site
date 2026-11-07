@@ -1,0 +1,6 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配套讲解：工程文件与两种备份</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>配套讲解：工程文件与两种备份</h1><p>本页只摘取当前任务指定的本站讲义章节，按页面顺序阅读；不要求读完整原稿。</p><section id="section-0"><h2>工程文件与两种备份</h2><pre>
+Godot工程以project.godot为入口，场景、脚本和被引用的图片声音要一起保留；.godot通常是编辑器生成的缓存，不把它当作唯一资源来源。用新的目录或设备打开副本，才能发现遗漏资源。Git只记录已经提交的内容，推送才传到远程；没有保存进Git的内容不能假设能从历史找回。
+
+网站里的姓名、学习记录和问题是另一类数据。在个人菜单的存档管理导出统一备份，保存JSON文件；它不会替你备份Godot工程。需要验证恢复时，使用独立浏览器测试环境，先备份原记录，再预览导入，不能拿自己唯一的记录做破坏性练习。合格证据是：能分别指出学习备份文件和可重开的工程副本。
+
+</pre></section><p><a href="61d0d8de750c.html">按需查看完整原稿</a></p></html>

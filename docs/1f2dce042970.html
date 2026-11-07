@@ -1,0 +1,67 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>02_Git与GitHub_官方系统学习路线</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>02_Git与GitHub_官方系统学习路线</h1><p>完整参考原稿，按需回查。旧站号可能不同，当前任务与验收以课堂为准。</p><section id="section-0"><h2>Git与GitHub：从项目存档到协作交付</h2><pre>
+目标：让AI改工程前有可恢复版本，修改后知道差异，能把正确版本同步到远程。先在自己的练习仓库完成操作，不在教师资料母版试验。下面是本站原创学习导航和练习，技术讲解以官方链接为准。学习路线不自动改变网页题目或过站积分。
+
+</pre></section><section id="section-1"><h2>少量必学：先完成三个实际动作</h2><pre>
+保留本站01入门讲义作为中文概念导读，不要求重复学习多套完整课程。先做：留下提交→检查远程同步→查看历史与差异。已经会的概念可直接用操作证明。
+
+</pre></section><section id="section-2"><h2>1. 分清本地存档与远程同步</h2><pre>
+[GitHub官方：关于Git](<a href="https://docs.github.com/zh/get-started/using-git/about-git" target="_blank" rel="noopener">https://docs.github.com/zh/get-started/using-git/about-git</a>)
+
+只读版本控制、仓库以及Git与GitHub的关系。Git管理版本，GitHub托管远程仓库；本地commit不等于已经push。练习：改练习项目README，查看改动并提交，再同步到自己的仓库网页，确认能看到同一次提交。不要把“复制一个ZIP”理解为掌握版本管理。
+
+</pre></section><section id="section-3"><h2>2. 完成一次最小协作流程</h2><pre>
+[GitHub官方：Hello World](<a href="https://docs.github.com/zh/get-started/using-github/hello-world" target="_blank" rel="noopener">https://docs.github.com/zh/get-started/using-github/hello-world</a>)
+
+跟随创建仓库、建分支、修改与提交、打开Pull Request、检查并合并的完整练习。官方教程无需编程或命令行基础，适合先在网页理解流程。本练习用新建的独立测试仓库；分支不是另一份独立备份，PR是提议合并更改，不是发送聊天消息。
+
+交付：一条提交记录、一次README差异、一份已检查的PR。网页练习不能代替下面的本地工程同步练习。
+
+</pre></section><section id="section-4"><h2>3. 证明自己知道如何恢复</h2><pre>
+回到本站01讲义，在练习仓库查看旧版本内容，与当前版本比较；需要撤销时先说明是未提交修改还是已经提交的更改，保留现状，再按适用方法恢复并验证。不能只让AI报告“已备份”。
+
+验收：能指出提交位置、远程位置、具体改动，并用一次练习证明能找回旧内容。不要在真实项目尝试强制推送、清空目录或未经理解的重置命令。
+
+</pre></section><section id="section-5"><h2>按需参考：一次只解决当前问题</h2><pre>
+</pre></section><section id="section-6"><h2>不熟悉命令行：图形界面是替代操作路线</h2><pre>
+[GitHub Desktop：克隆和派生仓库](<a href="https://docs.github.com/zh/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop" target="_blank" rel="noopener">https://docs.github.com/zh/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop</a>)
+
+先读克隆和本地仓库。已有本地Git工作流可跳过，无需再学一遍所有操作。练习：克隆自己的练习仓库到一个明确的新目录，核对远程地址；不要在已有项目中重复套一层仓库。
+
+[GitHub Desktop：同步分支](<a href="https://docs.github.com/zh/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop" target="_blank" rel="noopener">https://docs.github.com/zh/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop</a>)
+
+只读分支同步与拉取，顺着页面链接查推送。区分Fetch检查远程、Pull更新本地、Push发送本地提交。练习：网页改一次README并提交，本地查看并拉取；再做相反方向的提交与推送。先保存本地改动，遇到冲突停下来核对，不直接覆盖另一边。Rebase、压缩合并与强制推送留到进阶。
+
+</pre></section><section id="section-7"><h2>哪些文件不应该提交</h2><pre>
+[GitHub官方：忽略文件](<a href="https://docs.github.com/zh/get-started/git-basics/ignoring-files" target="_blank" rel="noopener">https://docs.github.com/zh/get-started/git-basics/ignoring-files</a>)
+
+学仓库级.gitignore，理解已经被跟踪的文件不会因为新加忽略规则就自动消失。练习用不含真实秘密的临时日志文件验证规则；Godot工程要核对版本对应的忽略模板，不把游戏必需资源一并排除。
+
+API Key、密码和学生隐私不要入库。若误传真实凭据，应先撤销/轮换并联系教师；只删除当前文件不代表清除了历史。本段仅预防和应急提醒，不要求学生自行重写历史。
+
+</pre></section><section id="section-8"><h2>向老师或项目维护者清楚反馈</h2><pre>
+[GitHub官方：创建Issue](<a href="https://docs.github.com/zh/issues/tracking-your-work-with-issues/using-issues/creating-an-issue" target="_blank" rel="noopener">https://docs.github.com/zh/issues/tracking-your-work-with-issues/using-issues/creating-an-issue</a>)
+
+只学网页创建方式。练习先写草稿：环境、复现步骤、预期、实际结果和必要截图；确认无凭据与隐私后，按课程要求提交。已有相同问题先查看，不重复发。Issue记录问题，不能替代Git提交或工程验收。
+
+</pre></section><section id="section-9"><h2>进阶选学：需要时再展开</h2><pre>
+</pre></section><section id="section-10"><h2>系统查阅版本控制</h2><pre>
+[Pro Git 第二版（中文）](<a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">https://git-scm.com/book/zh/v2</a>)
+
+这是Git官网提供的系统书籍。建议按需查“Git基础”中的记录更新、查看历史、撤销操作、远程仓库，再查“Git分支”中的分支与合并。以书中当前目录为准，不从安装、底层对象到服务器部署全书通读。它与GitHub网页入门分工不同：前者讲版本管理，后者讲平台协作。廖雪峰教程和原B站视频作为替代解释，选一种看懂即可。
+
+</pre></section><section id="section-11"><h2>给可玩的游戏标记一个版本</h2><pre>
+[GitHub官方：管理发行版](<a href="https://docs.github.com/zh/repositories/releasing-projects-on-github/managing-releases-in-a-repository" target="_blank" rel="noopener">https://docs.github.com/zh/repositories/releasing-projects-on-github/managing-releases-in-a-repository</a>)
+
+第7站发布作品时再读创建发行版部分。练习：对已经验收的版本写版本号、变化和已知问题，准备可运行导出包；源代码ZIP不等于学生能直接玩的游戏。Release用于分发版本，网页可玩作品仍按本站原发布路线处理。首次用草稿核对，确认文件、许可和隐私后再发布。
+
+</pre></section><section id="section-12"><h2>AI协作时每天用的操作清单</h2><pre>
+开工：确认项目目录、当前分支与已有改动→保存可恢复基线。修改后：查看diff→运行游戏并按标准检查→提交一个明确变化→按需要推送→到远程核对。出现冲突：保留双方内容、说明差异、验证合并结果；不知道怎么选时先请教师协助。
+
+这是一份建议流程，不是要求每天机械重复全部教程。AI协助执行前，应说明操作对象与影响；特别是删文件、重置、改历史和推送到他人仓库时，先核对权限和后果。
+
+</pre></section><section id="section-13"><h2>来源核对与范围</h2><pre>
+核对日期2026-11-03。GitHub中文官方页面已读取正文；Pro Git已核对官方中文目录入口，作为系统查阅书，不声称逐章实操审完。本轮没有安装GitHub Desktop或代学生创建练习仓库。资料统一按用途分工，不转载官方全文、不新增未经核验的视频。原站内讲义和配套视频仍保留；打开外链不代表验收通过。
+
+</pre></section><section id="section-14"><h2>第一次操作的默认入口</h2><pre>
+零基础先用本站04图形操作清单，在GitHub Desktop中完成README单独提交；本页保留系统查阅，不要求起步同时学习命令行。
+</pre></section></html>

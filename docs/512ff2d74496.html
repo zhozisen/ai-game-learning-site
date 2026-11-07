@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>04_AI开发进阶_官方系统路线</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>04_AI开发进阶_官方系统路线</h1><p>完整参考原稿，按需回查。旧站号可能不同，当前任务与验收以课堂为准。</p><section id="section-0"><h2>AI开发进阶：Skills、MCP、子代理、Hook与自动化</h2><pre>
+定位：第3站的进阶选学路线，可在第6站开发中回来使用。不影响主线过站和积分。前置：完成03入门路线，能用Git恢复项目，完成过一个可运行的小功能。命令行不熟悉时先读概念，不急着安装。
+
+本路线选用同一套Claude Code官方中文手册，避免多套教程反复讲提示词。它介绍的是Claude Code的具体实现，不保证同名功能在其他工具中配置相同。阅读免费文档不代表模型调用免费；先确认自己的工具权限、额度和费用。中文示例与练习是本站原创，官方页面负责技术讲解；命令与配置按你安装的版本核对。
+
+</pre></section><section id="section-1"><h2>总顺序与分工</h2><pre>
+1. Skills：把重复使用的工作方法整理成说明书。
+2. MCP：为AI连接项目外的工具与资料。
+3. 子代理：把边界清晰的子任务交给专门助手。
+4. Hook：在特定事件发生时自动执行确定的检查。
+5. 非交互运行：将单次任务接到脚本流程。
+6. 综合实践：串联已验证的步骤，而不是一次开启所有自动化。
+
+这些机制作用不同，不能互相替代。项目约定说明“应该怎样做”；Hook等机制可执行具体检查，但检查本身是否正确仍要验证。并行任务也不保证更快或更省。
+
+</pre></section><section id="section-2"><h2>架构设计与系统课程：先知道为什么这样连接</h2><pre>
+前置：完成本站05的手工流程实践。先用简单顺序流程解决问题，再判断是否真的需要Agent；下面两项属于进阶选学，有重叠，不要求两套学完。
+
+[Anthropic工程团队：Building Effective Agents](<a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener">https://www.anthropic.com/research/building-effective-agents</a>)
+
+先读工作流与Agent区别、串联、路由、并行和评估改进的图解。用途是理解连接方式和选择依据，不照搬旧工具配置；官方注明部分工具信息已随时间变化。英文为主。练习：给自己的流程选择一种最简单的结构，说明哪些步骤固定、哪些允许AI动态判断；写清失败、停止和人工接手条件。
+
+[吴恩达：Agentic AI官方系统课程](<a href="https://www.deeplearning.ai/courses/agentic-ai" target="_blank" rel="noopener">https://www.deeplearning.ai/courses/agentic-ai</a>)
+
+想进一步实现多步骤工作流时，再查看课程的前置要求和实际练习环境。本站仅核对官方课程介绍，未逐节审课或验证代码；编程、语言、登录、费用以当前页面为准，不作为零基础必修。沿用同一个任务，避免为学工具另建复杂项目。
+
+共同交付：流程图、输入输出约定、至少一个正常和一个失败案例、人工检查点、调用次数或成本上限，以及停用方法。可以先手工模拟，不能把画图当成自动化已运行。随后按真实需求选择下列技术，不需要把五种机制全部装齐。
+
+</pre></section><section id="section-3"><h2>1. Skills：让一种方法可重复使用</h2><pre>
+主讲：[使用 skills 扩展 Claude（官方中文）](<a href="https://code.claude.com/docs/zh-CN/skills" target="_blank" rel="noopener">https://code.claude.com/docs/zh-CN/skills</a>)
+
+先读“开始使用”“创建你的第一个skill”、加载位置和调用控制；之后有需要再查frontmatter、支持文件。暂不学习复杂动态注入和大规模组织配置。
+
+练习：做一个仅输出报告的“Godot功能验收清单”技能。输入功能说明，输出操作步骤、预期表现、边界情况；不自动修改工程。验证在两个不同功能上能否复用，并保留一次不适用的例子。
+
+交付：技能说明、两份检查清单及自己的修订记录。已有02概念文档用来查术语，不再重复通读。
+
+</pre></section><section id="section-4"><h2>2. MCP：先理解边界，再连接工具</h2><pre>
+主讲：[通过 MCP 将 Claude Code 连接到工具（官方中文）](<a href="https://code.claude.com/docs/zh-CN/mcp" target="_blank" rel="noopener">https://code.claude.com/docs/zh-CN/mcp</a>)
+
+先读能做什么、查找服务器、安装方式、服务器管理，以及项目批准与信任相关说明。只学习实际需要的一种连接方式；不同平台的安装命令不要混用。
+
+练习：先画清“AI→MCP服务器→资料/工具”的关系。若普通文件读取已足够，记录不需要MCP的原因即可。确有需求时，在练习目录中试一个经教师核对来源、尽量只读的服务，记录它可读哪些数据及如何停用。
+
+交付：连接需求、权限范围、一次成功/失败观察与停用步骤。安装与授权在学生自己的工具中完成；不要把令牌写入网页、公开仓库或报告。不会因为学MCP就自动安装Godot第三方插件。
+
+</pre></section><section id="section-5"><h2>3. 子代理：先分工，再并行</h2><pre>
+主讲：[创建自定义 subagents（官方中文）](<a href="https://code.claude.com/docs/zh-CN/sub-agents" target="_blank" rel="noopener">https://code.claude.com/docs/zh-CN/sub-agents</a>)
+
+按“快速入门→配置→限制工具→使用与常见模式”阅读；本阶段不需要多层代理递归或复杂团队调度。
+
+练习：主助手负责一个小游戏功能，子代理只审查需求与验收遗漏，输出报告，不修改文件。先比较串行检查是否已足够；再尝试互不依赖的资料检查任务。禁止多个助手同时改同一场景或脚本。
+
+交付：任务边界、输入资料、允许工具、交付格式，以及主助手采纳/未采纳的建议。子代理的结论仍需自己验证，不能当作独立事实证明。
+
+</pre></section><section id="section-6"><h2>4. Hook：让重复检查按事件执行</h2><pre>
+主讲：[使用 hooks 自动化操作（官方中文）](<a href="https://code.claude.com/docs/zh-CN/hooks-guide" target="_blank" rel="noopener">https://code.claude.com/docs/zh-CN/hooks-guide</a>)
+
+先读Hook的用途、第一个Hook、配置位置和运行检查；需要编写时再查官方链接中的完整参考。理解事件触发与普通提示词请求的区别。
+
+练习：先在临时目录手动运行一条无副作用检查，确认正常输入和故意失败输入都能正确报告。再将其接到一个明确事件；保留日志，并验证失败确实可见。不要直接把下载来的脚本挂到整个项目上。
+
+交付：触发事件、检查内容、成功/失败日志、停用方法。Hook会自动执行命令，必须理解脚本内容；先检查后接入，不在练习中自动删除、上传或发布文件。
+
+</pre></section><section id="section-7"><h2>5. 非交互运行：把一次任务接进脚本</h2><pre>
+主讲：[以编程方式运行 Claude Code（官方中文）](<a href="https://code.claude.com/docs/zh-CN/headless" target="_blank" rel="noopener">https://code.claude.com/docs/zh-CN/headless</a>)
+
+先读CLI基本用法、工具权限、输出格式与继续对话的说明。先掌握一次运行再考虑SDK；不要求新手同时学习Python与TypeScript。
+
+练习：对复制出来的练习工程生成一次只读检查报告，保存输出并检查失败状态。先确认输入目录和工具范围，记录耗时与调用成本。限制重试次数；不要无限循环调用，也不要开启跳过权限的模式。
+
+交付：输入、运行方式、输出、失败处理，以及如何停止。报告不能冒充Godot真正运行过的测试结果。
+
+</pre></section><section id="section-8"><h2>6. 综合：一条小型开发检查流水线</h2><pre>
+在同一个练习工程完成：保存Git基线→主助手实施一个已批准的小功能→只读子代理审查→运行确定性检查→学生在Godot中实际操作→记录问题→修复后复验→学生确认提交。
+
+复用前五节即可，不引入另一套重复课程。MCP没有真实连接需求可以不用；Hook先用于已验证的检查；非交互脚本先单次运行。先顺序串联，只有独立任务才考虑并行。游戏发布、账号授权及付费操作不进入学生无人值守练习。
+
+交付：可运行的小功能、一次故意失败与恢复记录、检查报告、操作验证和Git提交。思考：哪些步骤自动化节省了重复劳动，哪些决策仍应由自己承担？网站记录和实际工程验收分开，由教师核对证据。
+
+</pre></section><section id="section-9"><h2>去重与来源核对</h2><pre>
+核对日期：2026-11-03。五个官方中文页面的正文/目录已读取，按用途筛选阅读范围，不声称逐条配置均在本机实装验证；文档持续更新，以实际安装版本为准。第三方MCP服务、本地Godot插件和学生账号环境未在本轮安装测试。
+
+03负责协作入门，本页负责开发工具进阶，02保留宏观概念，原配套视频保留为操作参考。官方原文只在各节保留一个主要入口；遇到问题再查相应参考，不要求重复学完同主题的全部资料。网络或语言不适配时先记录卡点，找教师协助，不以打开链接认定掌握。
+</pre></section></html>

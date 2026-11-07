@@ -1,0 +1,60 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>03_GitHub找项目与读项目</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>03_GitHub找项目与读项目</h1><p>完整参考原稿，按需回查。旧站号可能不同，当前任务与验收以课堂为准。</p><section id="section-0"><h2>GitHub实用路线：发现、阅读与判断开源项目</h2><pre>
+这份资料补充“怎样利用GitHub学习别人的做法”。02负责自己的版本管理与协作，本页负责发现和理解他人项目，不重复练提交和PR。第1站先学浏览，认识Godot后再回来运行小型示例；阅读与运行不是一回事。
+
+</pre></section><section id="section-1"><h2>1. 找热门项目与专题项目</h2><pre>
+[GitHub Trending：近期热门项目](<a href="https://github.com/trending" target="_blank" rel="noopener">https://github.com/trending</a>)
+
+适合发现最近受关注的项目。按页面支持的时间和语言筛选查看；榜单随时间变化，不把某个项目当作永久推荐。记录它解决什么问题，而不是只记Star数。热门不代表适合零基础，也不证明质量或安全。
+
+[Godot Topics：Godot专题项目](<a href="https://github.com/topics/godot" target="_blank" rel="noopener">https://github.com/topics/godot</a>)
+
+适合按主题找引擎工具、示例和游戏。先看简短说明，再确认引擎版本、运行方式和项目体量。标签由项目维护者设置，不能代替适配检查。
+
+[GitHub官方：发现项目](<a href="https://docs.github.com/zh/get-started/exploring-projects-on-github/discovering-projects-on-github" target="_blank" rel="noopener">https://docs.github.com/zh/get-started/exploring-projects-on-github/discovering-projects-on-github</a>)
+
+学习Explore、搜索、Star以及关注作者/组织各自的用途。Star用来收藏，Fork用于建立自己的派生仓库；都不等于已经学会。优先保存能解释用途的少量项目，不以收藏数量作为成果。
+
+</pre></section><section id="section-2"><h2>2. 用搜索找需要的东西</h2><pre>
+[GitHub官方：搜索仓库](<a href="https://docs.github.com/zh/search-github/searching-on-github/searching-for-repositories" target="_blank" rel="noopener">https://docs.github.com/zh/search-github/searching-on-github/searching-for-repositories</a>)
+
+先学关键词、topic、language、stars、archived等筛选。示例搜索语句：`topic:godot archived:false`；需要再加`language:GDScript`。如果结果太少，先减少条件。热门项目筛选与适合新手的项目筛选不是一件事，低Star的小型官方示例也可能更合适。
+
+练习：围绕“Godot 2D角色移动”搜索，挑两个候选；记录搜索语句、链接和为什么保留。不要只搜索“完整商业游戏源码”，先从一个能理解的小功能开始。
+
+</pre></section><section id="section-3"><h2>3. 打开别人的仓库，按顺序阅读</h2><pre>
+本站建议顺序：README→演示/截图→运行要求→LICENSE→目录与一个小功能→Issues/提交活动→Releases。顺序是阅读导航，不是所有仓库都必须具有这些页面。
+
+- README：项目解决什么问题，是游戏、插件、模板还是教程？先找使用方法、依赖、引擎版本和已知限制。
+- 文件目录：确认项目入口，Godot示例常能看到`project.godot`及场景/脚本；不要未经检查就把别人目录覆盖进自己的工程。
+- Issues：看常见报错、版本不兼容和维护者回应；问题多不一定质量差，可能只是使用者多。
+- 提交与Releases：看修改历史及稳定版本说明；近期无提交不必然废弃，归档标记、未解决兼容问题与说明要一起判断。
+
+[GitHub官方：导航代码](<a href="https://docs.github.com/zh/repositories/working-with-files/using-files/navigating-code-on-github" target="_blank" rel="noopener">https://docs.github.com/zh/repositories/working-with-files/using-files/navigating-code-on-github</a>)
+
+需要读源码时，学习文件浏览、符号、定义与引用导航。符号导航只支持文档列出的语言，不保证GDScript也能点击跳转；没有导航时用文件内查找或在Godot中阅读，不必认为项目坏了。
+
+</pre></section><section id="section-4"><h2>4. 用一个官方仓库练习读项目</h2><pre>
+[Godot官方示例：godot-demo-projects](<a href="https://github.com/godotengine/godot-demo-projects" target="_blank" rel="noopener">https://github.com/godotengine/godot-demo-projects</a>)
+
+这是官方的示例与模板仓库入口，不是要求学生通读整个Godot引擎源码。先阅读README里的版本与分支说明，选择与你安装版本对应的小型2D示例。默认分支可能面向不同版本，不能直接假定可运行。
+
+第一次只完成阅读：用自己的话解释示例展示什么、入口在哪里、需要什么Godot版本。基础具备后，再在独立目录取得示例，按说明导入并运行；选择一个小改动，预测效果后验证。本轮仅核对仓库页面与说明，不声称所有示例都已实机运行。
+
+</pre></section><section id="section-5"><h2>5. 判断能否借用，而不是直接复制</h2><pre>
+[GitHub官方：仓库许可证](<a href="https://docs.github.com/zh/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository" target="_blank" rel="noopener">https://docs.github.com/zh/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository</a>)
+
+先找许可证位置，分清“可查看”和“获得使用、修改、分发许可”。没有许可证时，不自行认定可以复制、改造并发布。代码、图片、字体、音频可能有不同许可，复用前逐项核对；不确定就先学习思路，向教师确认后再用于作品。不要删掉要求保留的作者和许可信息。
+
+发现项目后，先看运行说明再考虑下载、克隆或Fork，这些具体操作回02查阅。陌生项目的安装脚本、插件、自动化配置都可能执行命令；在练习目录中检查，不提供自己账号的凭据或关闭安全检查。
+
+</pre></section><section id="section-6"><h2>6. 用AI帮助阅读，但由自己核对</h2><pre>
+可用任务：请AI只依据当前README和明确给出的文件，说明用途、版本要求、入口与一个功能的数据流，给出对应文件路径；区分已证实与推测，缺资料先指出。不要让AI只凭项目名编出结构，也不要把整个仓库代码一次塞进聊天。
+
+然后自己打开对应文件或说明验证。读懂一个功能的输入、处理和结果，比得到一份长摘要更有用。不要求安装付费工具才能完成本页练习。
+
+</pre></section><section id="section-7"><h2>交付一张项目阅读卡</h2><pre>
+填写：项目链接；解决的问题；对应游戏需求；Godot/依赖版本；运行说明；许可证及素材条件；一个功能的文件位置；保留或放弃的理由；下一步如何验证。无法确认的项明确写“未确认”。浏览了、收藏了、运行了、真正理解了分别记录，不自动加能力分。
+
+</pre></section><section id="section-8"><h2>来源与去重</h2><pre>
+2026-11-03核对Trending、Godot Topics、官方示例仓库和GitHub中文帮助页面。来源正文/目录已读取；动态热榜只作为入口，不固定推荐当前上榜项目。官方文档只保留各主题一个主入口，02已有的克隆、Issue创建、Release操作不在此重复。练习与阅读顺序为本站原创，不转载原文全文。外站网络、账号及学生环境需实际验证。
+</pre></section></html>

@@ -1,0 +1,25 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配套讲解：概念1：节点（Node）—— 最小的积木；概念2：场景（Scene）—— 积木拼成的部件；概念4：资源（Resource）—— 数据和逻辑分家</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>配套讲解：概念1：节点（Node）—— 最小的积木；概念2：场景（Scene）—— 积木拼成的部件；概念4：资源（Resource）—— 数据和逻辑分家</h1><p>本页只摘取当前任务指定的本站讲义章节，按页面顺序阅读；不要求读完整原稿。</p><section id="section-0"><h2>概念1：节点（Node）—— 最小的积木</h2><pre>
+| 为什么 | Godot 里一切东西都是节点。不懂节点，等于不认识这个世界的&quot;原子&quot; |
+|---|---|
+| **不懂会怎样** | 你看 AI 写的代码会像看天书；Godot 编辑器里的&quot;场景&quot;面板对你是神秘树 |
+| **是什么** | 一个只做一件事的小零件：`Sprite2D` 负责显示一张图，`AudioStreamPlayer` 负责放一段声音，`CharacterBody2D` 负责一个能移动的角色 |
+| **怎么用** | 想要什么功能，就找对应节点拼上去；像搭乐高 |
+| **什么时候用** | 永远。你做的每个东西都是节点的组合 |
+
+</pre></section><section id="section-1"><h2>概念2：场景（Scene）—— 积木拼成的部件</h2><pre>
+| 为什么 | 光有节点是一盘散沙，场景把节点组织成树：玩家、敌人、主菜单各是一个场景，拼成整个游戏 |
+|---|---|
+| **不懂会怎样** | 无法理解&quot;为什么敌人可以做成一个文件，然后复制出 10 个&quot;；AI 说的&quot;实例化&quot;你听不懂 |
+| **是什么** | 一棵节点树，存成 `.tscn` 文件；场景里可以嵌套场景（把&quot;敌人&quot;场景放进&quot;关卡&quot;场景） |
+| **怎么用** | 把相关节点组织成一个场景 → 保存 → 在别处像用零件一样复用它 |
+| **什么时候用** | 组织任何游戏内容时 |
+
+</pre></section><section id="section-2"><h2>概念4：资源（Resource）—— 数据和逻辑分家</h2><pre>
+| 为什么 | 物品表、怪物属性、关卡配置都是&quot;数据&quot;。资源让数据离开代码，策划（你）改数值不用动代码 |
+|---|---|
+| **不懂会怎样** | 数据写死在代码里，改一个伤害数值要让 AI 重新改代码——又慢又容易崩 |
+| **是什么** | Godot 的数据容器（`.tres` 文件），在编辑器右侧面板直接改，像填 Excel |
+| **怎么用** | 对 AI 说：&quot;把物品做成 Resource，建 ItemData 资源类，数据用 .tres 配&quot; |
+| **什么时候用** | 任何有&quot;表&quot;性质的东西：物品、技能、敌人、关卡、对话 |
+
+</pre></section><p><a href="87f3e9adbbcb.html">按需查看完整原稿</a></p></html>

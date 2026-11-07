@@ -1,0 +1,17 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配套讲解：先导出一个目标版本；故障先检查哪里</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>配套讲解：先导出一个目标版本；故障先检查哪里</h1><p>本页只摘取当前任务指定的本站讲义章节，按页面顺序阅读；不要求读完整原稿。</p><section id="section-0"><h2>先导出一个目标版本</h2><pre>
+记录实际Godot完整版本，安装与该版本匹配的导出模板。项目导出中添加目标预设，先解决界面提示的缺失项，再执行项目导出。不要把仅导出资源包当成独立可玩程序。
+
+Web版保留导出的整套必需文件；按平台要求打包部署后用网址测试，不用双击本地HTML的结果代替正式验证。Windows版保留导出产生的必需文件，放到没有编辑器的目标电脑试运行。具体选项随版本和渲染器变化，遇到差异查询已有官方资料，不要求升级工程。
+
+</pre></section><section id="section-1"><h2>故障先检查哪里</h2><pre>
+| 现象 | 检查顺序 |
+|---|---|
+| 不能导出 | 实际版本、对应模板、目标预设提示、输出路径 |
+| 编辑器正常但发布页打不开 | 文件是否齐全、入口与托管配置、浏览器报错、当前版本Web限制 |
+| 图片/音频缺失 | 资源引用与大小写、导出包含范围、网络加载错误 |
+| 按键或按钮无反应 | 窗口焦点、输入方式、界面遮挡、实际支持平台 |
+| 声音没响 | 是否需要先进行用户交互、音量/静音、音频资源与浏览器报错 |
+
+这些是排查方向，不保证覆盖所有环境；保留完整报错、构建版本和复现步骤找教师协助。不能为了排错盲目关闭权限限制。
+
+</pre></section><p><a href="624e1d046cd9.html">按需查看完整原稿</a></p></html>

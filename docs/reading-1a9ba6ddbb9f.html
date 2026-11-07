@@ -1,0 +1,17 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配套讲解：5. 非交互运行：把一次任务接进脚本；6. 综合：一条小型开发检查流水线</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>配套讲解：5. 非交互运行：把一次任务接进脚本；6. 综合：一条小型开发检查流水线</h1><p>本页只摘取当前任务指定的本站讲义章节，按页面顺序阅读；不要求读完整原稿。</p><section id="section-0"><h2>5. 非交互运行：把一次任务接进脚本</h2><pre>
+主讲：[以编程方式运行 Claude Code（官方中文）](<a href="https://code.claude.com/docs/zh-CN/headless" target="_blank" rel="noopener">https://code.claude.com/docs/zh-CN/headless</a>)
+
+先读CLI基本用法、工具权限、输出格式与继续对话的说明。先掌握一次运行再考虑SDK；不要求新手同时学习Python与TypeScript。
+
+练习：对复制出来的练习工程生成一次只读检查报告，保存输出并检查失败状态。先确认输入目录和工具范围，记录耗时与调用成本。限制重试次数；不要无限循环调用，也不要开启跳过权限的模式。
+
+交付：输入、运行方式、输出、失败处理，以及如何停止。报告不能冒充Godot真正运行过的测试结果。
+
+</pre></section><section id="section-1"><h2>6. 综合：一条小型开发检查流水线</h2><pre>
+在同一个练习工程完成：保存Git基线→主助手实施一个已批准的小功能→只读子代理审查→运行确定性检查→学生在Godot中实际操作→记录问题→修复后复验→学生确认提交。
+
+复用前五节即可，不引入另一套重复课程。MCP没有真实连接需求可以不用；Hook先用于已验证的检查；非交互脚本先单次运行。先顺序串联，只有独立任务才考虑并行。游戏发布、账号授权及付费操作不进入学生无人值守练习。
+
+交付：可运行的小功能、一次故意失败与恢复记录、检查报告、操作验证和Git提交。思考：哪些步骤自动化节省了重复劳动，哪些决策仍应由自己承担？网站记录和实际工程验收分开，由教师核对证据。
+
+</pre></section><p><a href="512ff2d74496.html">按需查看完整原稿</a></p></html>

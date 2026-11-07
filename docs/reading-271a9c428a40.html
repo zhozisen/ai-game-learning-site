@@ -1,0 +1,28 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配套讲解：示例 一张可验收的重开任务卡；模板 拆自己的功能；反例 按文件拆得不能运行</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>配套讲解：示例 一张可验收的重开任务卡；模板 拆自己的功能；反例 按文件拆得不能运行</h1><p>本页只摘取当前任务指定的本站讲义章节，按页面顺序阅读；不要求读完整原稿。</p><section id="section-0"><h2>示例 一张可验收的重开任务卡</h2><pre>
+```text
+目标：结束后点击重开进入初始状态。
+前置：已有结束界面和可运行基线。
+输入：实际主场景、分数与初始化脚本。
+允许改动：重开按钮事件及本局初始化。
+验收：新局分数0；旧临时对象清理；连续三局不重复连接；原移动仍正常。
+失败处理：记录差异和错误，保护未提交工作后恢复基线。
+依赖：先查现状→按钮触发与初始化一起完成→多局回归。
+```
+
+</pre></section><section id="section-1"><h2>模板 拆自己的功能</h2><pre>
+```text
+功能目标：___
+前置与输入：___
+这次可运行变化：___
+允许改动：___
+操作与预期：___
+边界和回归：___
+恢复点：___
+下一张依赖本张什么结果：___
+```
+
+</pre></section><section id="section-2"><h2>反例 按文件拆得不能运行</h2><pre>
+```text
+卡A写一个按钮脚本，卡B以后再处理初始化，但A没有独立可验证行为。可以将按钮与必要初始化合成一张小卡，让中间版本仍可运行。
+```
+</pre></section><p><a href="1bec6effb193.html">按需查看完整原稿</a></p></html>

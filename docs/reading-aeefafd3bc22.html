@@ -1,0 +1,6 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配套讲解：信号到计分与重开的完整关系</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>配套讲解：信号到计分与重开的完整关系</h1><p>本页只摘取当前任务指定的本站讲义章节，按页面顺序阅读；不要求读完整原稿。</p><section id="section-0"><h2>信号到计分与重开的完整关系</h2><pre>
+把关系分成三步：物品只报告“我被接到了”；主场景决定分数加多少；界面把当前分数显示出来。这样物品不必知道Label在哪里。先画发送者 → 信号 → 接收函数 → 分数 → 界面，再在工程里找每条箭头对应的连接或调用。
+
+重复计分不一定是算术错误，也可能是物品触发两次，或一次事件被两处处理。连接时机与对象寿命需要一起看：旧场景是否已经释放，新一轮是否再次给同一对象连接？不要简单地到处断开信号。换条件测试连续拾取、结束后拾取和连续重开三轮；每轮起点、加分次数与结束行为都应明确。
+
+</pre></section><p><a href="61d0d8de750c.html">按需查看完整原稿</a></p></html>

@@ -1,0 +1,23 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>04_第一次提交_图形操作清单</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>04_第一次提交_图形操作清单</h1><p>完整参考原稿，按需回查。旧站号可能不同，当前任务与验收以课堂为准。</p><section id="section-0"><h2>从空目录到第一次文字提交</h2><pre>
+本节默认GitHub Desktop图形路线。官方操作与真实界面截图：[创建第一个仓库](<a href="https://docs.github.com/en/desktop/overview/creating-your-first-repository-using-github-desktop" target="_blank" rel="noopener">https://docs.github.com/en/desktop/overview/creating-your-first-repository-using-github-desktop</a>)。先看创建仓库及Changes、History，不要求本节发布远程仓库。英文页面可以浏览器翻译；菜单以实际版本为准。
+
+先打开工具并核对自己的账号和Git姓名/邮箱；安装或登录卡住时保留提示找教师，不把密码交给AI。README是介绍项目的文本文件；仓库是Git管理历史的项目目录。本节不用先学分支或命令行。
+
+</pre></section><section id="section-1"><h2>创建独立练习仓库</h2><pre>
+File → New repository，Name填learning-git，Local path选择自己能找到的父目录，勾选Initialize this repository with a README，再Create repository。工具会在父目录下创建learning-git；History自动有Initial commit。不要选择教师母库，也不要以为初始化历史就是自己的文字改动已提交。
+
+</pre></section><section id="section-2"><h2>保存并查看差异</h2><pre>
+Repository → Show in Explorer，编辑README.md，在末尾加“本周目标：做出能重开的小游戏”并保存。再建notes.txt写“我的想法还没确定”。回到Desktop的Changes，应该有两个文件；右侧能看新增文字。
+
+若没有变化，先核对Current repository、文件真实路径、是否保存，以及有没有另存为README.md.txt。保存与提交是两件事。
+
+</pre></section><section id="section-3"><h2>只提交本次内容</h2><pre>
+只勾选README.md，取消notes.txt；Summary填写“说明首个小游戏目标”，点击Commit to当前分支。切History核对新提交只含README变更，回Changes确认notes.txt仍存在且未提交。关闭重开后再检查。
+
+预期：历史有初始化和你新写的提交说明；README目标文字已进入提交，notes仍未提交。本地提交不等于GitHub网页更新，远程推送留到后面一节。
+
+</pre></section><section id="section-4"><h2>换一个小任务试试</h2><pre>
+现在只改变README中的目标，再新增一份尚未确定的计划文件。自己决定如何只提交明确的目标，并检查计划仍保留。卡住先看“当前仓库—变化—选中范围—历史”，不删除文件来清空Changes。
+
+本机未安装Desktop，图形操作依据上述官方文档核对；底层提交范围与历史需在独立测试仓库验证后另留证据，不将命令行结果冒充Desktop截图。
+</pre></section></html>

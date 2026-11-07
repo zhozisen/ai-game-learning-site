@@ -1,0 +1,6 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配套讲解：架构演化与回归边界</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>配套讲解：架构演化与回归边界</h1><p>本页只摘取当前任务指定的本站讲义章节，按页面顺序阅读；不要求读完整原稿。</p><section id="section-0"><h2>架构演化与回归边界</h2><pre>
+先描述具体压力：新功能需要反复跨模块改动、同一数据有多个主人，还是性能确实不够？留一个旧行为的验证步骤，再只调整一处职责或接口。用同一任务对比改前改后要动哪些地方。
+
+自动检查优先保护明确的规则和故障复现，不承诺自动判断“好玩”。变更后运行原复现、相邻行为和完整核心循环；保留有效版本，失败时能退回。大改前先写迁移和回滚办法，不让“重构”成为没有验收的重写。
+
+</pre></section><p><a href="61d0d8de750c.html">按需查看完整原稿</a></p></html>

@@ -1,0 +1,6 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配套讲解：拆解一次生成与反馈</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>配套讲解：拆解一次生成与反馈</h1><p>本页只摘取当前任务指定的本站讲义章节，按页面顺序阅读；不要求读完整原稿。</p><section id="section-0"><h2>拆解一次生成与反馈</h2><pre>
+只追一颗子弹：player/gun.gd什么时候发射，player/bullet.gd怎样运动和处理命中，enemy/enemy.gd什么时候接收结果。记录生成的父节点、对象引用和移除条件；不要看见一个queue_free就假定整条链已经没有残留。
+
+只追一次反馈：先在游戏里观察，再找相应AnimationPlayer或音频节点及贴图、资源，倒查是谁触发它。暂停或结束时再做一次，区分“没有触发事件”和“触发了但没有呈现”。使用原工程的实际文件作证据，不把自己的猜测写成作者原设计。
+
+</pre></section><p><a href="61d0d8de750c.html">按需查看完整原稿</a></p></html>

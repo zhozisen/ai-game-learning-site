@@ -1,0 +1,6 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配套讲解：从需求读出架构约束</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>配套讲解：从需求读出架构约束</h1><p>本页只摘取当前任务指定的本站讲义章节，按页面顺序阅读；不要求读完整原稿。</p><section id="section-0"><h2>从需求读出架构约束</h2><pre>
+画模块前先列：必须实现什么、第一版不做什么、在哪个环境运行、现有工程不能破坏什么。例如浏览器单人小游戏、不能依赖服务端、允许更新界面但不能让旧分数残留。这些约束会影响状态放哪里、资源怎样加载、失败怎样返回。
+
+把“将来可能需要”与“已经确认必须支持”分开。不确定项先做最小实验：若换场景就丢数据，先验证状态寿命，再决定是否引入跨场景管理。最后将每个模块或接口连回一条需求；无法说明用途的先不加。
+
+</pre></section><p><a href="61d0d8de750c.html">按需查看完整原稿</a></p></html>

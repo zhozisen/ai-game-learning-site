@@ -1,0 +1,6 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配套讲解：职责接口与方案取舍</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>配套讲解：职责接口与方案取舍</h1><p>本页只摘取当前任务指定的本站讲义章节，按页面顺序阅读；不要求读完整原稿。</p><section id="section-0"><h2>职责接口与方案取舍</h2><pre>
+一张职责表先写谁拥有数据、谁可以改变数据、谁只显示结果。以拾取为例：物品报告事件，Main维护分数，HUD显示分数；事件可带物品ID和分值，但HUD不再偷偷累加一份分数。
+
+接口至少写输入、输出、调用时机与失败处理。比较两个方案时，用同一个变化验证：如果换界面，哪些地方要改？如果删掉物品，谁负责清理？先选能满足当前约束、改动影响可解释的方案。模块越多不等于架构越好；暂时重复的两行代码也不一定值得提前抽象。团队协作时先对齐这个约定，再用PR检查实现是否符合约定。
+
+</pre></section><p><a href="61d0d8de750c.html">按需查看完整原稿</a></p></html>

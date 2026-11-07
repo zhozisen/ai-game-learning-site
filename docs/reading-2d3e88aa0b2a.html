@@ -1,0 +1,36 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配套讲解：第 3 步：拆信号流 —— 零件之间怎么说话（1 小时）；第 4 步：拆数据流 —— 数据从表到画面（1 小时）</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>配套讲解：第 3 步：拆信号流 —— 零件之间怎么说话（1 小时）；第 4 步：拆数据流 —— 数据从表到画面（1 小时）</h1><p>本页只摘取当前任务指定的本站讲义章节，按页面顺序阅读；不要求读完整原稿。</p><section id="section-0"><h2>第 3 步：拆信号流 —— 零件之间怎么说话（1 小时）</h2><pre>
+信号流是读源码最容易迷路的地方，也是最值得学的地方。
+
+**提示词**：
+
+```
+第三步，拆信号：全局搜出所有自定义信号的定义和连接（emit 与 connect），
+整理成一张表：信号名 | 谁发出 | 谁监听 | 监听后干什么。
+然后回答：这个工程里&quot;耦合度最低&quot;的一次通信是哪次？为什么好？
+```
+
+**追问**：*&quot;如果不用信号，这些地方会变成什么样？画一下改坏之后的调用关系。&quot;*
+
+**应得产出**：信号收发表 + 一句&quot;哪处信号设计得好&quot;。→ 报告第 3 节
+
+---
+
+</pre></section><section id="section-1"><h2>第 4 步：拆数据流 —— 数据从表到画面（1 小时）</h2><pre>
+第 2 站说&quot;资源是放在外面的数据&quot;，这一步看真的游戏怎么落地。
+
+**提示词**：
+
+```
+第四步，拆数据：这个工程的数据（配置/存档/资源文件）放在哪？
+挑一个完整系统（比如存档、或者某个玩法系统），讲清三段：
+①数据从哪来（哪个文件/哪个节点产生）
+②经过谁处理（哪个脚本读它、改它）
+③画面怎么变（哪个场景/节点负责显示）。
+如果有 .tres 资源或 CSV 配表，开一个给我看结构。
+```
+
+**应得产出**：一段三段式数据流描述（从文件名到节点名）。→ 报告第 4 节
+
+---
+
+</pre></section><p><a href="daaab941d3e1.html">按需查看完整原稿</a></p></html>

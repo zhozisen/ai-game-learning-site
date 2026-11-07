@@ -1,5 +1,4 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>01_四大概念卡</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}</style><h1>01_四大概念卡</h1><p>这是补充原稿，旧站号可能与新版不同。学习顺序、教学基线和验收以当前课堂为准。</p><pre># 四大概念卡 —— Godot 世界的四个词
-
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>01_四大概念卡</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>01_四大概念卡</h1><p>完整参考原稿，按需回查。旧站号可能不同，当前任务与验收以课堂为准。</p><section id="section-0"><h2>四大概念卡 —— Godot 世界的四个词</h2><pre>
 | 为什么先学这四个词 | AI 时代做游戏的瓶颈不是写代码，而是**你会不会描述**。Godot 的世界只有四个词：节点、场景、信号、资源。懂了它们，你才能对 AI 说清楚要什么，也才能看懂 AI 做了什么 |
 |---|---|
 | **不懂会怎样** | 你只能说&quot;帮我做个游戏&quot;，AI 只能瞎猜——做出来的东西不是你想要的，你还没法指出问题在哪 |
@@ -7,12 +6,10 @@
 | **怎么用** | 一天读一两张，读完就去 `02_看AI做游戏.md` 看 AI 怎么把四个词用活 |
 | **什么时候用** | 第 2 站集中学；之后做项目期间随时回来查卡 |
 
-## 一句话总览
-
+</pre></section><section id="section-1"><h2>一句话总览</h2><pre>
 &gt; **节点是零件，场景是零件拼的部件，信号是零件间的对讲机，资源是放在外面的数据。**
 
-## 概念1：节点（Node）—— 最小的积木
-
+</pre></section><section id="section-2"><h2>概念1：节点（Node）—— 最小的积木</h2><pre>
 | 为什么 | Godot 里一切东西都是节点。不懂节点，等于不认识这个世界的&quot;原子&quot; |
 |---|---|
 | **不懂会怎样** | 你看 AI 写的代码会像看天书；Godot 编辑器里的&quot;场景&quot;面板对你是神秘树 |
@@ -20,8 +17,7 @@
 | **怎么用** | 想要什么功能，就找对应节点拼上去；像搭乐高 |
 | **什么时候用** | 永远。你做的每个东西都是节点的组合 |
 
-## 概念2：场景（Scene）—— 积木拼成的部件
-
+</pre></section><section id="section-3"><h2>概念2：场景（Scene）—— 积木拼成的部件</h2><pre>
 | 为什么 | 光有节点是一盘散沙，场景把节点组织成树：玩家、敌人、主菜单各是一个场景，拼成整个游戏 |
 |---|---|
 | **不懂会怎样** | 无法理解&quot;为什么敌人可以做成一个文件，然后复制出 10 个&quot;；AI 说的&quot;实例化&quot;你听不懂 |
@@ -29,8 +25,7 @@
 | **怎么用** | 把相关节点组织成一个场景 → 保存 → 在别处像用零件一样复用它 |
 | **什么时候用** | 组织任何游戏内容时 |
 
-## 概念3：信号（Signal）—— 零件之间的对讲机
-
+</pre></section><section id="section-4"><h2>概念3：信号（Signal）—— 零件之间的对讲机</h2><pre>
 | 为什么 | 血条变了 HUD 要刷新、按钮按下要开始游戏——零件之间要沟通。信号就是 Godot 官方的沟通方式 |
 |---|---|
 | **不懂会怎样** | 代码互相乱调用拧成麻花；AI 给你解耦的好代码你反而看不懂 |
@@ -38,8 +33,7 @@
 | **怎么用** | 对 AI 说：&quot;用信号把 X 和 Y 解耦，X 发信号，Y 监听&quot; |
 | **什么时候用** | 任何&quot;一个东西发生，另一个东西要响应&quot;的场合 |
 
-## 概念4：资源（Resource）—— 数据和逻辑分家
-
+</pre></section><section id="section-5"><h2>概念4：资源（Resource）—— 数据和逻辑分家</h2><pre>
 | 为什么 | 物品表、怪物属性、关卡配置都是&quot;数据&quot;。资源让数据离开代码，策划（你）改数值不用动代码 |
 |---|---|
 | **不懂会怎样** | 数据写死在代码里，改一个伤害数值要让 AI 重新改代码——又慢又容易崩 |
@@ -47,8 +41,7 @@
 | **怎么用** | 对 AI 说：&quot;把物品做成 Resource，建 ItemData 资源类，数据用 .tres 配&quot; |
 | **什么时候用** | 任何有&quot;表&quot;性质的东西：物品、技能、敌人、关卡、对话 |
 
-## 四个词怎么配合？（一个敌人的例子）
-
+</pre></section><section id="section-6"><h2>四个词怎么配合？（一个敌人的例子）</h2><pre>
 想象游戏里的一只敌人，四个词同时上场：
 
 | 概念 | 在这只敌人身上是…… |
@@ -58,8 +51,7 @@
 | **信号** | 它被玩家子弹打到时**广播**一个&quot;我死了&quot;信号；计分板、掉落系统**监听**这个信号各自响应——它们互相不认识，也能配合 |
 | **资源** | 它的血量、速度、掉落物是 `enemy_slime.tres` 文件里的数据——想让史莱姆变强，改表就行，不用动代码 |
 
-## 跟 AI 说话时怎么用这四个词
-
+</pre></section><section id="section-7"><h2>跟 AI 说话时怎么用这四个词</h2><pre>
 | 你想要 | 这样说 |
 |---|---|
 | 加个会动的东西 | &quot;用一个 `CharacterBody2D` **节点**做玩家&quot; |
@@ -70,4 +62,4 @@
 ---
 
 下一站：带上这四个词，去 `02_看AI做游戏.md` 看 AI 用它们真的做一个小游戏。
-</pre></html>
+</pre></section></html>

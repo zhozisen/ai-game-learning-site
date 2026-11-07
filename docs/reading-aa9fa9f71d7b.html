@@ -1,0 +1,6 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配套讲解：计时生成与对象清理</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>配套讲解：计时生成与对象清理</h1><p>本页只摘取当前任务指定的本站讲义章节，按页面顺序阅读；不要求读完整原稿。</p><section id="section-0"><h2>计时生成与对象清理</h2><pre>
+编辑器里拖入场景，是预先摆放；运行时刷出对象，需要代码创建实例并把它加入场景树。最小关系是：Timer触发timeout → 运行instantiate创建一个对象 → add_child挂到明确的父节点。先不加随机位置，确保一次触发只增加一个对象，再加入位置变化。
+
+清理要有条件：命中、越界或寿命结束时释放对象；queue_free安排在安全时机移除，别再把旧引用当作有效对象使用。结束游戏时，停止继续生成，并明确是否清理现有对象。换条件核对：缩短计时间隔、结束后等两秒、重开三次，观察对象数与生成频率是否符合预测。相关API看官方“Nodes and scene instances”的Creating nodes、Instancing scenes、Freeing nodes，不必先读完整节点类手册。
+
+</pre></section><p><a href="61d0d8de750c.html">按需查看完整原稿</a></p></html>

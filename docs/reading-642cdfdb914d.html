@@ -1,0 +1,21 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配套讲解：先画职责与联系；从结构图拆任务</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>配套讲解：先画职责与联系；从结构图拆任务</h1><p>本页只摘取当前任务指定的本站讲义章节，按页面顺序阅读；不要求读完整原稿。</p><section id="section-0"><h2>先画职责与联系</h2><pre>
+主资料：[Godot官方 场景组织](<a href="https://docs.godotengine.org/zh-cn/stable/tutorials/best_practices/scene_organization.html" target="_blank" rel="noopener">https://docs.godotengine.org/zh-cn/stable/tutorials/best_practices/scene_organization.html</a>)，先读职责单一、场景关系与信号连接的讨论。中文版本选择器可能跳转，应与实际版本核对；代码按本机版本验证。复杂依赖注入示例先跳过。
+
+以简单拾取游戏为例，下面是示意，不是要求所有游戏使用同一文件结构：
+
+| 部分 | 负责什么 | 如何联系 |
+|---|---|---|
+| 主场景 | 组织本局开始、结束和重开 | 创建所需对象、连接事件 |
+| 玩家场景 | 接受输入、移动 | 按约定提供行为和状态 |
+| 可拾取物场景 | 被拾取后的本地表现 | 通知发生了拾取，由负责计分的部分处理 |
+| 分数状态 | 保存当前分数 | 按规则变化，不由Label文字反推全部状态 |
+| 界面 | 显示分数和按钮 | 接收显示更新，按钮发出操作请求 |
+
+画图时写清数据由谁修改、事件由谁发出与处理。小工程可以合并职责相近部分；不必每一行都建一个类。避免两个脚本同时认定自己是唯一计分者，造成一次拾取加两次分。
+
+</pre></section><section id="section-1"><h2>从结构图拆任务</h2><pre>
+需求：拾取后加分，达到目标进入结束界面，并能重开。先核对已有移动与拾取，再依次实现“拾取反馈与计分”“结束条件与界面”“重开状态恢复”，每步保留可运行版本。若一个小变化必须跨场景和脚本，一张卡仍可包含多个文件。
+
+任务卡沿用第3站模板：目标、前置、输入、范围、预期行为、边界、恢复点。先做技术上不确定又影响核心循环的部分，不先批量生成整套美术。测试与版本管理贯穿每一步，美术与程序可按依赖配合，不是全部代码做完才允许美术。
+
+</pre></section><p><a href="926303b814a3.html">按需查看完整原稿</a></p></html>

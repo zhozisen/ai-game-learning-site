@@ -1,0 +1,6 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配套讲解：数组字典与资源各管什么</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>配套讲解：数组字典与资源各管什么</h1><p>本页只摘取当前任务指定的本站讲义章节，按页面顺序阅读；不要求读完整原稿。</p><section id="section-0"><h2>数组字典与资源各管什么</h2><pre>
+数组适合一组有顺序的内容，例如关卡列表；字典用键找到值，例如物品ID对应价格；Resource适合把编辑器可配置的数据保存成资源。它们不是必须同时使用的三个框架。先列一个实际查询：我要按哪个键找到什么值，谁有权修改它？
+
+用两种物品做最小测试：改变一个的价格，观察另一个是否也变了。如果共享了同一资源，意外联动可能来自共享引用。先区分配置与本局可变状态，再决定是否复制或另存状态；不要通过复制所有脚本掩盖问题。
+
+</pre></section><p><a href="61d0d8de750c.html">按需查看完整原稿</a></p></html>

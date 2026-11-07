@@ -1,23 +1,19 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>03_Godot最低开发能力_官方学习路线</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}</style><h1>03_Godot最低开发能力_官方学习路线</h1><p>这是补充原稿，旧站号可能与新版不同。学习顺序、教学基线和验收以当前课堂为准。</p><pre># Godot最低开发能力：从编辑器到完整小项目
-
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>03_Godot最低开发能力_官方学习路线</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>03_Godot最低开发能力_官方学习路线</h1><p>完整参考原稿，按需回查。旧站号可能不同，当前任务与验收以课堂为准。</p><section id="section-0"><h2>Godot最低开发能力：从编辑器到完整小项目</h2><pre>
 目标：自己能打开工程、理解一次改动、运行验证并定位基本问题。AI可以辅助解释和实现，不能代替自己的操作。先读本站01四大概念速览，再按本页六步走；02看AI演示作为操作参考，不再只凭记住四个词或按一次运行就认为具备开发能力。
 
-## 开始前：版本、基础与练习范围
-
+</pre></section><section id="section-1"><h2>开始前：版本、基础与练习范围</h2><pre>
 记录本机Godot完整版本、GDScript语言和练习目录；先用Git留基线。链接优先中文官方资料，但本轮中文stable入口重定向到4.x并出现latest/unstable提示。打开后用版本选择器核对本机版本；没有对应版本时向教师确认，不能把旧版截图或API直接套用。不要求为了匹配教程升级现有工程。英文稳定版逐步入门可作对照：[Step by step](<a href="https://docs.godotengine.org/en/stable/getting_started/step_by_step/index.html" target="_blank" rel="noopener">https://docs.godotengine.org/en/stable/getting_started/step_by_step/index.html</a>)。
 
 下面每步的练习、记录和验收是本站原创教学安排；主要技术讲解来自外链。保留同一个练习工程逐步添加内容，最后再选择一个完整小项目。不要求重复跟完多套教程，也不要求购买工具。文档打不开时保留卡点，找教师协助，不把AI猜测当官方说明。
 
-## 1. 编辑器操作：知道东西在哪里
-
+</pre></section><section id="section-2"><h2>1. 编辑器操作：知道东西在哪里</h2><pre>
 [官方中文：初识Godot界面](<a href="https://docs.godotengine.org/zh-cn/stable/getting_started/introduction/first_look_at_the_editor.html" target="_blank" rel="noopener">https://docs.godotengine.org/zh-cn/stable/getting_started/introduction/first_look_at_the_editor.html</a>)
 
 阅读项目管理器、主工作区、场景树、文件系统与检查器相关部分。亲手创建独立练习工程和2D场景，保存后运行；区分运行当前场景和整个项目，检查主场景设置。熟悉运行/停止按钮，不依赖不同键盘环境下的快捷键。
 
 验收：关闭后重新找到并打开工程；能指出场景文件、节点属性和报错输出在哪里。截图说明自己的目录与运行画面，不只交AI生成的文件列表。
 
-## 2. 场景与实例：从一个对象到多个对象
-
+</pre></section><section id="section-3"><h2>2. 场景与实例：从一个对象到多个对象</h2><pre>
 [官方中文：节点与场景](<a href="https://docs.godotengine.org/zh-cn/stable/getting_started/step_by_step/nodes_and_scenes.html" target="_blank" rel="noopener">https://docs.godotengine.org/zh-cn/stable/getting_started/step_by_step/nodes_and_scenes.html</a>)
 
 [官方中文：创建实例](<a href="https://docs.godotengine.org/zh-cn/stable/getting_started/step_by_step/instancing.html" target="_blank" rel="noopener">https://docs.godotengine.org/zh-cn/stable/getting_started/step_by_step/instancing.html</a>)
@@ -26,8 +22,7 @@
 
 验收：能区分场景文件、场景内节点和运行中的实例；说出本次改动影响哪一个对象。不要求这一步写复杂生成脚本。
 
-## 3. 脚本阅读：先跨过最低编程台阶
-
+</pre></section><section id="section-4"><h2>3. 脚本阅读：先跨过最低编程台阶</h2><pre>
 [官方中文：创建第一个脚本](<a href="https://docs.godotengine.org/zh-cn/stable/getting_started/step_by_step/scripting_first_script.html" target="_blank" rel="noopener">https://docs.godotengine.org/zh-cn/stable/getting_started/step_by_step/scripting_first_script.html</a>)
 
 [官方稳定版：GDScript参考](<a href="https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html" target="_blank" rel="noopener">https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html</a>)
@@ -46,8 +41,7 @@
 
 验收：用自己的话解释一段短脚本，先写预测再改一个参数，核对运行结果。只会背关键字或让AI解释，不等于已会使用。暂不要求理解继承体系、复杂泛型或底层算法。
 
-## 4. 输入与信号：操作能触发正确变化
-
+</pre></section><section id="section-5"><h2>4. 输入与信号：操作能触发正确变化</h2><pre>
 [官方稳定版：Listening to player input](<a href="https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_player_input.html" target="_blank" rel="noopener">https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_player_input.html</a>)
 
 [官方中文：使用信号](<a href="https://docs.godotengine.org/zh-cn/stable/getting_started/step_by_step/signals.html" target="_blank" rel="noopener">https://docs.godotengine.org/zh-cn/stable/getting_started/step_by_step/signals.html</a>)
@@ -58,35 +52,30 @@
 
 验收：能指出输入动作、接收节点和处理函数的位置；说明事件为何只应触发一次或持续生效。本站网页信号实验作概念辅助，工程中的实际操作另行记录。
 
-## 5. 调试：从现象找到证据
-
+</pre></section><section id="section-6"><h2>5. 调试：从现象找到证据</h2><pre>
 [官方中文：调试器面板](<a href="https://docs.godotengine.org/zh-cn/stable/tutorials/scripting/debug/debugger_panel.html" target="_blank" rel="noopener">https://docs.godotengine.org/zh-cn/stable/tutorials/scripting/debug/debugger_panel.html</a>)
 
 先看错误、调用栈、断点与变量观察相关部分。仅在练习工程制造一个可恢复的小错误，例如改变一个节点引用，再运行观察。复制完整错误、指出文件/行号和复现动作；必要时打断点观察变量。运行结果与自己预测不符也值得调试，不只关注红色报错。
 
 验收：交现象、错误依据、修复和复验记录；恢复原功能且不丢失之前通过的练习。AI可以帮助排查，但学生必须实际运行，不能把“AI已检查”写成测试通过。
 
-## 6. 完整小项目：把前五步串起来
-
+</pre></section><section id="section-7"><h2>6. 完整小项目：把前五步串起来</h2><pre>
 [官方中文：你的第一个2D游戏](<a href="https://docs.godotengine.org/zh-cn/stable/getting_started/first_2d_game/index.html" target="_blank" rel="noopener">https://docs.godotengine.org/zh-cn/stable/getting_started/first_2d_game/index.html</a>)
 
 具备前五步基础后，按项目设置、玩家、敌人、主场景、界面和收尾的顺序学习。官方项目是躲避敌人的小型2D游戏，不是本站接星星示例；二者任选一条做完整实践，另一条只作对照，不要求重复制作两款。选接星星时以本站02为任务说明，用官方逐步教程查需要的技术。
 
 验收：从开始到操作、得分/存活反馈、结束与重新开始完整运行；能说明一个输入、一个信号与一个场景实例各在哪里；找同学试玩一次，并亲手修改一个可观察的小功能。保存工程、Git记录、操作检查与已知问题。导出发布放到第7站，不强迫初学时同时配置所有平台。
 
-## 学习层级与记录
-
+</pre></section><section id="section-8"><h2>学习层级与记录</h2><pre>
 少量必学：六步里每步的一次最小练习，沿用同一个工程。按需参考：对应官方章节、01概念卡、02演示与原B站视频；无需通读全部手册。进阶选学：3D、复杂动画、性能优化与自动化，待首个完整小项目后再选。
 
 每步记三行：我做了什么、实际看到什么、哪一点还不明白。实际工程证据需教师核对；网站现有概念题、信号模拟和积分规则不代表已经自动验收这六步，阅读链接也不会自动提升雷达分数。
 
-## 核对记录
-
+</pre></section><section id="section-9"><h2>核对记录</h2><pre>
 2026-11-03读取上述官方中文正文以及英文输入、逐步目录；中文文档版本跳转限制已说明。GDScript稳定版参考已在前轮读取，本页只作为语法查阅。未在学生电脑逐个运行示例，不声称已验证Godot 4.7兼容。外链负责技术讲解，练习与验收清单为本站原创，不转载原文全文。本轮未加入无法完成课程内容审看的第三方互动课程。
 
-## 本轮验证与学习边界
-
+</pre></section><section id="section-10"><h2>本轮验证与学习边界</h2><pre>
 本轮在Godot 4.7.2.stable.official.ed1daf0bf下验证赋值、条件、函数调用与_ready/_process微步骤。官方躲避示例使用godotengine/godot-demo-projects固定提交b761b4cd5718a7118f2c95eb55f181d0a5f004f1，保留其MIT许可；headless检查涵盖开始、方向输入、生成敌人、计分、碰撞结束、再次开始和清理旧敌人。无界面检查不代替学生设备上的视觉、声音和真人试玩；该次退出有资源释放警告，未据此声称完整工程已通过所有质量检查。
 
 默认路线为官方躲避项目：项目设置→玩家→挑战和反馈→结束→重开与试玩。代码看不懂先回网页四个脚本微步骤，每次预测后只改一处并运行。
-</pre></html>
+</pre></section></html>

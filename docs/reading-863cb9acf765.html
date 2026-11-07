@@ -1,0 +1,6 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配套讲解：后台加载与使用时机</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>配套讲解：后台加载与使用时机</h1><p>本页只摘取当前任务指定的本站讲义章节，按页面顺序阅读；不要求读完整原稿。</p><section id="section-0"><h2>后台加载与使用时机</h2><pre>
+同步加载简单直接；后台加载适合确实阻塞当前体验的大资源。先测切换前后的等待发生在哪里，不能看到卡顿就先加线程。最小方案是：开始请求 → 检查进度或状态 → 成功后取出资源并切换 → 失败给出返回或重试。
+
+不要在资源尚未完成时直接当场景使用，也不要把同一个切换请求重复触发。换条件测试第二次点击、资源路径错误与取消切换；保留当前可用场景，说明自己未覆盖的设备和大资源情况。
+
+</pre></section><p><a href="61d0d8de750c.html">按需查看完整原稿</a></p></html>

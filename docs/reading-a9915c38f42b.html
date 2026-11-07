@@ -1,0 +1,21 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>配套讲解：示例 拾取计分的三种关系；模板 画自己的职责表</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>配套讲解：示例 拾取计分的三种关系；模板 画自己的职责表</h1><p>本页只摘取当前任务指定的本站讲义章节，按页面顺序阅读；不要求读完整原稿。</p><section id="section-0"><h2>示例 拾取计分的三种关系</h2><pre>
+```text
+结构包含：Main组织Player、Item和HUD。
+事件通知：Item发出picked，Main处理一次。
+状态变化：Main中的score加1，HUD读取并更新显示。
+任务顺序：核对移动→接通拾取到计分→加入结束与重开。
+这些是不同关系；小项目中不强制增加全局管理器。
+```
+
+</pre></section><section id="section-1"><h2>模板 画自己的职责表</h2><pre>
+```text
+对象/场景：___
+负责行为：___
+拥有和修改的状态：___
+发出什么事件：___
+谁接收：___
+通过什么方法检查：___
+先完成的依赖：___
+```
+
+</pre></section><p><a href="90629dac8492.html">按需查看完整原稿</a></p></html>

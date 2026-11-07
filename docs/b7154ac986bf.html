@@ -1,13 +1,11 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>06_CHANGELOG</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}</style><h1>06_CHANGELOG</h1><p>这是补充原稿，旧站号可能与新版不同。学习顺序、教学基线和验收以当前课堂为准。</p><pre># 更新日志（CHANGELOG）
-
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>06_CHANGELOG</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>06_CHANGELOG</h1><p>完整参考原稿，按需回查。旧站号可能不同，当前任务与验收以课堂为准。</p><section id="section-0"><h2>更新日志（CHANGELOG）</h2><pre>
 &gt; **版本规则**：主版本 = 结构大改 ｜ 次版本 = 新增内容 ｜ 修订号 = 勘误修正
 &gt; **怎么看自己的版本**：打开 `00_导读站\04_学习地图.html`，页脚有当前版本号和更新日期。
 &gt; **怎么更新**：微信群更新包（下载→解压到包的最外层→双击 更新.bat）；第 1 站学会 git 后即可改用 `git pull`。
 
 ---
 
-## v2.1.0 - 2026-10-21
-
+</pre></section><section id="section-1"><h2>v2.1.0 - 2026-10-21</h2><pre>
 全包文件按阅读顺序统一编号，找文件不用再猜（内容不变，只改文件名和引用）：
 
 - **每站「先读我」→ `00_先读我.md`**：七个站文件夹的第一份都是它
@@ -21,8 +19,7 @@
 
 ---
 
-## v2.0.1 - 2026-10-21
-
+</pre></section><section id="section-2"><h2>v2.0.1 - 2026-10-21</h2><pre>
 修复安装环节三处阻断性缺陷（学生无需任何额外操作，重新双击 02 即可）：
 
 - **双击 02 根本没反应（最致命）**：`02_开始安装.bat` 原为 LF 换行，cmd 会把行拆错——`echo.` 变成 `cho.`、`powershell` 那一行被截断，安装流程压根启动不了。已改为 CRLF，并新增 `.gitattributes` 锁定 `*.bat` 换行，防止再被改回去
@@ -36,8 +33,7 @@
 
 ---
 
-## v2.0.0 - 2026-10-21
-
+</pre></section><section id="section-3"><h2>v2.0.0 - 2026-10-21</h2><pre>
 结构大改：三段套七站 + 导读站定位强化 + 勘误。
 
 - **目录重组**：七站分装进三个段文件夹——`10_第一段_备好装备`（第 1~3 站）、`20_第二段_看懂游戏`（第 4~5 站）、`30_第三段_做出来`（第 6~7 站）；站文件夹名与内容不变，只是多了一层段文件夹
@@ -51,8 +47,7 @@
 
 ---
 
-## v1.1.0 - 2026-10-21
-
+</pre></section><section id="section-4"><h2>v1.1.0 - 2026-10-21</h2><pre>
 新增内容（三站联动 ＋ 第 3 站进阶包）：
 
 - **30 第3站_驾驭AI**：新增 02 号进阶文档《从 LLM 到 Agent——指挥 AI 的八级台阶》（AI 通识/LLM → 提示词 → Agent 工具选型 → Harness 设计思维 → MCP → Skill(重点) → 插件 → Apply），先读我同步收录&quot;进阶&quot;一节；配套 2 个 B 站视频（《10 分钟学会 24 个 ClaudeCode 使用技巧》《Claude Code 从 0 到 1 全攻略：MCP/SubAgent/Agent Skill/Hook》）与开源 AI 家教 DeepTutor
@@ -62,8 +57,7 @@
 
 ---
 
-## v1.0.0 - 2026-10-16
-
+</pre></section><section id="section-5"><h2>v1.0.0 - 2026-10-16</h2><pre>
 初版发布：七站学习路径 + 全部资料就位。
 
 - **入口与安装**：包根只剩指路牌 ①先点我.txt（&quot;打开00_导读站&quot;一句话）；00_导读站 收拢全部&quot;开始之前&quot;，**文件按使用顺序数字前缀命名**（00 安装引擎 → 01 先读我 → 02 开始安装 → 03 填Key教程(装后释放) → 04 装备清单 → 05 学习地图 → 06 使用指南 → 07 CHANGELOG → 08 总路线打卡清单）：01 先读我（总入口）+ 02 开始安装.bat（五步幂等：Claude Code→git→Godot 快捷方式→Watt Toolkit→收尾五项复检+打开学习地图）+ 05 学习地图.html（七站可视化+通关进度勾选）+ 06 使用指南 + 07 CHANGELOG + 08 总路线打卡清单（动作级一页地图）
@@ -79,4 +73,4 @@
 - **80 问题反馈**：提问模板 + 双通道提问法（先问AI再问老师）——学生问题直接驱动教材改进
 - **tools 母版层**（学生不可见）：打包分发版.ps1（含敏感串扫描）、反馈处理SOP.md（每周问题→内容优化流水线）
 - **发布前自检**（初中小白全流程走查）：修复 git 安装通道（安装器新增第2步 winget）、填Key教程可达性（自动复制到导读站）、安装收尾五项复检、SmartScreen/Claude上手/问AI引导等 6 处
-</pre></html>
+</pre></section></html>

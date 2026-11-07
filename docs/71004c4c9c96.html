@@ -1,11 +1,8 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>08_职责关系_样例和模板</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}</style><h1>08_职责关系_样例和模板</h1><p>这是补充原稿，旧站号可能与新版不同。学习顺序、教学基线和验收以当前课堂为准。</p><pre># 配套样例与模板
-
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>08_职责关系_样例和模板</title><style>body{background:#101010;color:#ddd;max-width:850px;margin:30px auto;padding:20px;font:16px/1.9 sans-serif}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}a{color:#eee}section{scroll-margin-top:24px}h1{font-size:25px}h2{font-size:20px}</style><h1>08_职责关系_样例和模板</h1><p>完整参考原稿，按需回查。旧站号可能不同，当前任务与验收以课堂为准。</p><section id="section-0"><h2>配套样例与模板</h2><pre>
 由tools/补强教学内容.py中的网页样例生成；示例路径需替换成自己的工程。先看例子，再填自己的成果，不重复交三份作业。
 
-## 最小结构与依赖任务
-
-### 示例 拾取计分的三种关系
-
+</pre></section><section id="section-1"><h2>最小结构与依赖任务</h2><pre>
+</pre></section><section id="section-2"><h2>示例 拾取计分的三种关系</h2><pre>
 ```text
 结构包含：Main组织Player、Item和HUD。
 事件通知：Item发出picked，Main处理一次。
@@ -14,8 +11,7 @@
 这些是不同关系；小项目中不强制增加全局管理器。
 ```
 
-### 模板 画自己的职责表
-
+</pre></section><section id="section-3"><h2>模板 画自己的职责表</h2><pre>
 ```text
 对象/场景：___
 负责行为：___
@@ -26,9 +22,8 @@
 先完成的依赖：___
 ```
 
-### 反例 一次拾取为何加两分
-
+</pre></section><section id="section-4"><h2>反例 一次拾取为何加两分</h2><pre>
 ```text
 Item自己加分，同时Main收到picked又加分。应先明确唯一写入者，避免重复连接，复验一次拾取只变化一次。HUD显示文字不是分数状态的唯一存储。
 ```
-</pre></html>
+</pre></section></html>
