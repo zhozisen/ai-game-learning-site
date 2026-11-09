@@ -1,10 +1,10 @@
 {
-  "version": "f165584fbf00",
+  "version": "07b16599f4e0",
   "curriculum": "eight-three-084ffb3327f9",
   "units": 120,
   "files": {
-    "index.html": "736eb7c19203651848ffc69a69c37fdd6fc4fe425c6e019bce5a37435585c312",
-    "61-全站结构化课堂预览.html": "736eb7c19203651848ffc69a69c37fdd6fc4fe425c6e019bce5a37435585c312",
+    "index.html": "401f0b208016e487b5d2d029d5040ebdd0c8db409b8fbad5922952de5c105a5b",
+    "61-全站结构化课堂预览.html": "401f0b208016e487b5d2d029d5040ebdd0c8db409b8fbad5922952de5c105a5b",
     "37-轨道课堂.html": "dcec20fdbe1d537dbdd10ef8415de4c41bd3cb73dc630bcf865884a5c366d43a",
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "课堂组件/教学内容修订.js": "82b3c0e36bd688da5af8706de269cf5162db9010b05404ef97b669cad9cfc609",
@@ -38,7 +38,7 @@
     "legacy-classroom.html": "3a92dac8d922c32d4dcf366d3078afba7d36e778af4e2ece94a3299dd2cc396a",
     "课堂组件/八站课程数据.js": "2031ed006a180520fc83ea509a0d3fa18d7c8a3c8767d985a58852fcc3b27e26",
     "课堂组件/八站学习模型.js": "9509847953bed81d5b7d73425825d2ee7a289f5bf527b597b0b29f02f0c359bf",
-    "课堂组件/八站课堂界面.js": "32816bd1d7b4d358584cca503710c8d070e9a7b810bf1f53e5745b8166005c2f",
+    "课堂组件/八站课堂界面.js": "ee967b24b609bb8ae801ee8732ed320e0a5a0365236c4159ca3acfa17743b581",
     "课堂组件/八站课堂.css": "babc724c05e48bf3b875460bd0afe8e89d4e105d53f08071621a4527888e25be",
     "课堂组件/课堂内容折叠.js": "359153089c2b8ad701c11df6596ce283890d7fee1a906c6a03136292bd1655a2",
     "课堂组件/课堂内容折叠.css": "36c4ea79c14ab48c8224ebf5d1bb856a659662b2c62badf6553286b652f1b9c9",
