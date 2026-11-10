@@ -1,10 +1,10 @@
 {
-  "version": "6c14db517ba1",
+  "version": "760fd758713e",
   "curriculum": "eight-three-084ffb3327f9",
   "units": 120,
   "files": {
-    "index.html": "2ba2d5c375ea0892174e31d998942757026c8e66188cadb78bf8354cc2859359",
-    "61-全站结构化课堂预览.html": "2ba2d5c375ea0892174e31d998942757026c8e66188cadb78bf8354cc2859359",
+    "index.html": "01b831069a8e6b38ab6ae1d37c513bdf6196b427f3d6610756515b0c045daaab",
+    "61-全站结构化课堂预览.html": "01b831069a8e6b38ab6ae1d37c513bdf6196b427f3d6610756515b0c045daaab",
     "37-轨道课堂.html": "dcec20fdbe1d537dbdd10ef8415de4c41bd3cb73dc630bcf865884a5c366d43a",
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "课堂组件/教学内容修订.js": "82b3c0e36bd688da5af8706de269cf5162db9010b05404ef97b669cad9cfc609",
